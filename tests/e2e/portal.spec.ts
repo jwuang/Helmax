@@ -50,7 +50,7 @@ test('no horizontal overflow across phone, tablet and desktop', async ({ page })
 test('home and contact pass automated accessibility checks', async ({ page }) => {
   for (const route of ['/zh-cn/', '/en/contact/']) {
     await page.goto(route);
-    expect((await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze()).violations).toEqual([]);
+    expect((await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze()).violations).toEqual([]);
   }
 });
 test('core content and navigation work without JavaScript', async ({ browser }) => {
