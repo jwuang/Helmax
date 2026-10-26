@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Arrow from './Arrow.astro';
+import { copy, pathFor, locales, type Locale } from '../lib/i18n';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const t = copy[locale];
+const languageLinks = Object.fromEntries(locales.map((target) => [target, pathFor(target, '404')]));
+---
+<BaseLayout locale={locale} title="404" description={t.notFoundDescription} section="404" noindex languageLinks={languageLinks}>
+  <div class="container not-found"><p class="error-code" aria-hidden="true">404</p><h1>{t.notFound}</h1><p>{t.notFoundDescription}</p><a class="button" href={pathFor(locale)}>{t.backHome}<Arrow/></a></div>
+</BaseLayout>

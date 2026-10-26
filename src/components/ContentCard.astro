@@ -1,0 +1,13 @@
+---
+import Arrow from './Arrow.astro';
+import { copy } from '../lib/i18n';
+import { entryPath, type Entry } from '../lib/content';
+interface Props { entry: Entry; index?: number; }
+const { entry, index = 0 } = Astro.props;
+const t = copy[entry.data.locale];
+---
+<a class="content-card" href={entryPath(entry)}>
+  <div class="card-top"><span class="card-number">{String(index + 1).padStart(2, '0')}</span><span class="card-category">{entry.data.previewOnly ? t.sample : entry.data.category}</span><Arrow diagonal /></div>
+  <div class:list={['card-illustration', `illustration-${index % 3}`]} aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+  <div class="card-body"><h3>{entry.data.title}</h3><p>{entry.data.summary}</p><span class="card-link">{t.detail}<Arrow /></span></div>
+</a>

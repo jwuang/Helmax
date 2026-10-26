@@ -1,0 +1,20 @@
+---
+import Brand from './Brand.astro';
+import Arrow from './Arrow.astro';
+import { copy, pathFor, languageNames, locales, htmlLanguages, type Locale } from '../lib/i18n';
+import { availableSections } from '../lib/content';
+import { siteConfig } from '../config/site';
+import { safeHref } from '../lib/security';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const t = copy[locale];
+const available = await availableSections(locale);
+---
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-brand"><Brand locale={locale}/><p>{t.footerNote}</p></div>
+    <div class="footer-column"><h2>{t.navigation}</h2><a href={pathFor(locale, 'about')}>{t.about}</a>{available.map((section) => <a href={pathFor(locale, section)}>{t[section]}</a>)}</div>
+    <div class="footer-column"><h2>{t.connect}</h2><a href={pathFor(locale, 'contact')}>{t.contact} <Arrow diagonal /></a>{siteConfig.email && <a href={safeHref(`mailto:${siteConfig.email}`)}>{siteConfig.email}</a>}</div>
+  </div>
+  <div class="container footer-bottom"><small>© {new Date().getFullYear()} {siteConfig.brand[locale].name}. {t.copyright}</small><div class="footer-languages">{locales.map((target) => <a href={pathFor(target)} lang={htmlLanguages[target]}>{languageNames[target]}</a>)}</div><a href={pathFor(locale, 'privacy')}>{t.privacy}</a></div>
+</footer>

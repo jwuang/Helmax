@@ -1,0 +1,10 @@
+---
+import { siteConfig } from '../config/site';
+import { pathFor, type Locale } from '../lib/i18n';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+---
+<a class="brand" href={pathFor(locale)}>
+  <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true"><path d="M3 26V7h9v12L24 7h9v19h-9V14L12 26H3Z" fill="currentColor"/><path d="M3 30h30v3H3z" fill="var(--accent)"/></svg>
+  <span>{siteConfig.brand[locale].name}<small>{locale === 'en' ? 'CORPORATE' : 'CORPORATE · 企业门户'}</small></span>
+</a>

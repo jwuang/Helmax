@@ -1,0 +1,53 @@
+# Copy to /etc/caddy/Caddyfile only after replacing domains and reviewing OPS-TODO.md.
+# /srv/corporate-portal/current must point to a production dist/ release.
+(security) {
+	header {
+		Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'"
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+		X-Frame-Options DENY
+		-Server
+		# Enable after HTTPS is verified. Do not add includeSubDomains/preload by default.
+		# Strict-Transport-Security "max-age=31536000"
+	}
+}
+(site) {
+	root * {$PORTAL_ROOT:/srv/corporate-portal/current}
+	encode zstd gzip
+	import security
+	@html not path /_astro/* /images/* /favicon.svg
+	header @html Cache-Control "public, max-age=0, must-revalidate"
+	@hashed path /_astro/*
+	header @hashed Cache-Control "public, max-age=31536000, immutable"
+	@images path /images/* /favicon.svg
+	header @images Cache-Control "public, max-age=3600"
+	route {
+		redir / /zh-cn/ 308
+		file_server
+	}
+	handle_errors {
+		@english path /en/*
+		@traditional path /zh-hk/*
+		handle @english {
+			rewrite * /en/404/index.html
+			file_server
+		}
+		handle @traditional {
+			rewrite * /zh-hk/404/index.html
+			file_server
+		}
+		handle {
+			rewrite * /404.html
+			file_server
+		}
+	}
+}
+# Local QA: caddy run --config ops/Caddyfile.example --adapter caddyfile
+# Supply PORTAL_DOMAIN and PORTAL_WWW_DOMAIN for production (different hostnames).
+{$PORTAL_DOMAIN:localhost:8080} {
+	import site
+}
+{$PORTAL_WWW_DOMAIN:localhost:8081} {
+	redir https://{$PORTAL_DOMAIN:localhost:8080}{uri} 308
+}
