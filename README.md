@@ -2,7 +2,17 @@
 
 简体中文、香港繁体中文、英文的响应式企业官网。Astro 静态输出、TypeScript、Tailwind CSS、Markdown 内容集合；无数据库、登录或后台。支持 PC、手机、平板及无需 JavaScript 的核心浏览。
 
-**当前是品牌待确认的可运行样稿。** 服务为明确标注的演示内容；案例、新闻模板为草稿，不在导航或 sitemap 中出现。未设置任何虚构电话、邮箱、客户、资质或业绩。正式构建要求实际域名及内容审核完成。
+**Astro 主站当前仍是可运行样稿；Helmax 设计已推进到独立交互概念稿阶段。** 服务为明确标注的演示内容；案例、新闻模板为草稿，不在导航或 sitemap 中出现。未设置任何虚构电话、邮箱、客户、资质或业绩。正式构建要求实际域名及内容审核完成。
+
+## 跨设备继续 Helmax 官网设计
+
+先读 [项目进度与接续说明](docs/PROJECT-STATUS.md)，再按需要查看 [项目聊天记录](docs/CHAT-LOG.md)。这两个文件记录已确认的需求、当前设计、验证情况和下一步。
+
+- [最新可滚动概念稿](docs/design/helmax-exhibition-prototype.html)：克隆仓库后用浏览器打开本地 HTML 文件；旁边的 `assets/` 目录需保留。
+- [首屏预览](docs/design/previews/helmax-hero-desktop.png) · [企业文化](docs/design/previews/helmax-culture-desktop.png) · [加载页](docs/design/previews/helmax-loading-desktop.png)。
+- [首页设计说明](docs/HOMEPAGE-WIREFRAME.md) · [现有官网评估与企业资料梳理](docs/HOMEPAGE-REVIEW.md)。
+
+概念稿尚未迁入 `src/` 的正式三语页面。后续设计保留 Helmax 统一品牌、统一“产品”展示、全屏章节、前置企业文化，以及“利他、专业、效率、创新”四个关键词。
 
 ## 开始开发
 

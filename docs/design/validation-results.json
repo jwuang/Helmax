@@ -1,0 +1,469 @@
+{
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 900,
+      "scrollWidth": 1440,
+      "viewportWidth": 1440,
+      "sections": [
+        {
+          "id": "hero",
+          "height": 900,
+          "contentHeight": 558,
+          "paddingTop": "122px",
+          "paddingBottom": "76px",
+          "contentInside": true,
+          "minHeight": "900px"
+        },
+        {
+          "id": "culture",
+          "height": 900,
+          "contentHeight": 538,
+          "paddingTop": "122px",
+          "paddingBottom": "76px",
+          "contentInside": true,
+          "minHeight": "900px"
+        },
+        {
+          "id": "about",
+          "height": 900,
+          "contentHeight": 558,
+          "paddingTop": "122px",
+          "paddingBottom": "76px",
+          "contentInside": true,
+          "minHeight": "900px"
+        },
+        {
+          "id": "products",
+          "height": 900,
+          "contentHeight": 693,
+          "paddingTop": "122px",
+          "paddingBottom": "76px",
+          "contentInside": true,
+          "minHeight": "900px"
+        },
+        {
+          "id": "services",
+          "height": 900,
+          "contentHeight": 491,
+          "paddingTop": "122px",
+          "paddingBottom": "76px",
+          "contentInside": true,
+          "minHeight": "900px"
+        },
+        {
+          "id": "contact",
+          "height": 900,
+          "contentHeight": 295,
+          "paddingTop": "122px",
+          "paddingBottom": "76px",
+          "contentInside": true,
+          "minHeight": "900px"
+        }
+      ],
+      "missingImages": [],
+      "values": [
+        "利他",
+        "专业",
+        "效率",
+        "创新"
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "scrollWidth": 1920,
+      "viewportWidth": 1920,
+      "sections": [
+        {
+          "id": "hero",
+          "height": 1080,
+          "contentHeight": 600,
+          "paddingTop": "122px",
+          "paddingBottom": "76px",
+          "contentInside": true,
+          "minHeight": "1080px"
+        },
+        {
+          "id": "culture",
+          "height": 1080,
+          "contentHeight": 551,
+          "paddingTop": "122px",
+          "paddingBottom": "76px",
+          "contentInside": true,
+          "minHeight": "1080px"
+        },
+        {
+          "id": "about",
+          "height": 1080,
+          "contentHeight": 644,
+          "paddingTop": "122px",
+          "paddingBottom": "76px",
+          "contentInside": true,
+          "minHeight": "1080px"
+        },
+        {
+          "id": "products",
+          "height": 1080,
+          "contentHeight": 736,
+          "paddingTop": "122px",
+          "paddingBottom": "76px",
+          "contentInside": true,
+          "minHeight": "1080px"
+        },
+        {
+          "id": "services",
+          "height": 1080,
+          "contentHeight": 491,
+          "paddingTop": "122px",
+          "paddingBottom": "76px",
+          "contentInside": true,
+          "minHeight": "1080px"
+        },
+        {
+          "id": "contact",
+          "height": 1080,
+          "contentHeight": 306,
+          "paddingTop": "122px",
+          "paddingBottom": "76px",
+          "contentInside": true,
+          "minHeight": "1080px"
+        }
+      ],
+      "missingImages": [],
+      "values": [
+        "利他",
+        "专业",
+        "效率",
+        "创新"
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "scrollWidth": 1280,
+      "viewportWidth": 1280,
+      "sections": [
+        {
+          "id": "hero",
+          "height": 720,
+          "contentHeight": 446,
+          "paddingTop": "106px",
+          "paddingBottom": "64px",
+          "contentInside": true,
+          "minHeight": "720px"
+        },
+        {
+          "id": "culture",
+          "height": 720,
+          "contentHeight": 463,
+          "paddingTop": "106px",
+          "paddingBottom": "64px",
+          "contentInside": true,
+          "minHeight": "720px"
+        },
+        {
+          "id": "about",
+          "height": 720,
+          "contentHeight": 491,
+          "paddingTop": "106px",
+          "paddingBottom": "64px",
+          "contentInside": true,
+          "minHeight": "720px"
+        },
+        {
+          "id": "products",
+          "height": 720,
+          "contentHeight": 543,
+          "paddingTop": "106px",
+          "paddingBottom": "64px",
+          "contentInside": true,
+          "minHeight": "720px"
+        },
+        {
+          "id": "services",
+          "height": 720,
+          "contentHeight": 491,
+          "paddingTop": "106px",
+          "paddingBottom": "64px",
+          "contentInside": true,
+          "minHeight": "720px"
+        },
+        {
+          "id": "contact",
+          "height": 720,
+          "contentHeight": 176,
+          "paddingTop": "106px",
+          "paddingBottom": "64px",
+          "contentInside": true,
+          "minHeight": "720px"
+        }
+      ],
+      "missingImages": [],
+      "values": [
+        "利他",
+        "专业",
+        "效率",
+        "创新"
+      ]
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "scrollWidth": 768,
+      "viewportWidth": 768,
+      "sections": [
+        {
+          "id": "hero",
+          "height": 1024,
+          "contentHeight": 669,
+          "paddingTop": "108px",
+          "paddingBottom": "70px",
+          "contentInside": true,
+          "minHeight": "1024px"
+        },
+        {
+          "id": "culture",
+          "height": 1040,
+          "contentHeight": 862,
+          "paddingTop": "108px",
+          "paddingBottom": "70px",
+          "contentInside": true,
+          "minHeight": "1024px"
+        },
+        {
+          "id": "about",
+          "height": 1029,
+          "contentHeight": 851,
+          "paddingTop": "108px",
+          "paddingBottom": "70px",
+          "contentInside": true,
+          "minHeight": "1024px"
+        },
+        {
+          "id": "products",
+          "height": 1504,
+          "contentHeight": 1326,
+          "paddingTop": "108px",
+          "paddingBottom": "70px",
+          "contentInside": true,
+          "minHeight": "1024px"
+        },
+        {
+          "id": "services",
+          "height": 1024,
+          "contentHeight": 773,
+          "paddingTop": "108px",
+          "paddingBottom": "70px",
+          "contentInside": true,
+          "minHeight": "1024px"
+        },
+        {
+          "id": "contact",
+          "height": 1024,
+          "contentHeight": 398,
+          "paddingTop": "108px",
+          "paddingBottom": "180px",
+          "contentInside": true,
+          "minHeight": "1024px"
+        }
+      ],
+      "missingImages": [],
+      "values": [
+        "利他",
+        "专业",
+        "效率",
+        "创新"
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "viewportWidth": 390,
+      "sections": [
+        {
+          "id": "hero",
+          "height": 844,
+          "contentHeight": 578,
+          "paddingTop": "108px",
+          "paddingBottom": "70px",
+          "contentInside": true,
+          "minHeight": "844px"
+        },
+        {
+          "id": "culture",
+          "height": 1091,
+          "contentHeight": 913,
+          "paddingTop": "108px",
+          "paddingBottom": "70px",
+          "contentInside": true,
+          "minHeight": "844px"
+        },
+        {
+          "id": "about",
+          "height": 844,
+          "contentHeight": 653,
+          "paddingTop": "108px",
+          "paddingBottom": "70px",
+          "contentInside": true,
+          "minHeight": "844px"
+        },
+        {
+          "id": "products",
+          "height": 1147,
+          "contentHeight": 969,
+          "paddingTop": "108px",
+          "paddingBottom": "70px",
+          "contentInside": true,
+          "minHeight": "844px"
+        },
+        {
+          "id": "services",
+          "height": 913,
+          "contentHeight": 735,
+          "paddingTop": "108px",
+          "paddingBottom": "70px",
+          "contentInside": true,
+          "minHeight": "844px"
+        },
+        {
+          "id": "contact",
+          "height": 844,
+          "contentHeight": 344,
+          "paddingTop": "108px",
+          "paddingBottom": "180px",
+          "contentInside": true,
+          "minHeight": "844px"
+        }
+      ],
+      "missingImages": [],
+      "values": [
+        "利他",
+        "专业",
+        "效率",
+        "创新"
+      ]
+    },
+    {
+      "width": 320,
+      "height": 740,
+      "scrollWidth": 320,
+      "viewportWidth": 320,
+      "sections": [
+        {
+          "id": "hero",
+          "height": 740,
+          "contentHeight": 557,
+          "paddingTop": "108px",
+          "paddingBottom": "70px",
+          "contentInside": true,
+          "minHeight": "740px"
+        },
+        {
+          "id": "culture",
+          "height": 1119,
+          "contentHeight": 941,
+          "paddingTop": "108px",
+          "paddingBottom": "70px",
+          "contentInside": true,
+          "minHeight": "740px"
+        },
+        {
+          "id": "about",
+          "height": 829,
+          "contentHeight": 651,
+          "paddingTop": "108px",
+          "paddingBottom": "70px",
+          "contentInside": true,
+          "minHeight": "740px"
+        },
+        {
+          "id": "products",
+          "height": 1149,
+          "contentHeight": 971,
+          "paddingTop": "108px",
+          "paddingBottom": "70px",
+          "contentInside": true,
+          "minHeight": "740px"
+        },
+        {
+          "id": "services",
+          "height": 1002,
+          "contentHeight": 824,
+          "paddingTop": "108px",
+          "paddingBottom": "70px",
+          "contentInside": true,
+          "minHeight": "740px"
+        },
+        {
+          "id": "contact",
+          "height": 740,
+          "contentHeight": 344,
+          "paddingTop": "108px",
+          "paddingBottom": "180px",
+          "contentInside": true,
+          "minHeight": "740px"
+        }
+      ],
+      "missingImages": [],
+      "values": [
+        "利他",
+        "专业",
+        "效率",
+        "创新"
+      ]
+    }
+  ],
+  "accessibility": [
+    {
+      "label": "desktop",
+      "violations": []
+    },
+    {
+      "label": "mobile",
+      "violations": []
+    },
+    {
+      "label": "loading",
+      "violations": []
+    }
+  ],
+  "interactions": {
+    "skipLinkFocus": true,
+    "mobileMenuOpen": true,
+    "escapeClosesMenu": true,
+    "productLinkHash": "#products",
+    "menuClosesAfterNavigation": true,
+    "reducedMotion": {
+      "animation": "none",
+      "scroll": "auto",
+      "snap": "none"
+    },
+    "noJsVisibleHeadings": 6
+  },
+  "loading": {
+    "noJsContentVisible": true,
+    "noJsLoaderHidden": true,
+    "pending": {
+      "inert": true,
+      "busy": "true",
+      "status": "status",
+      "label": "正在准备"
+    },
+    "reducedMotionAnimation": "none",
+    "afterReady": {
+      "inert": false,
+      "busy": "false",
+      "contentVisible": "visible"
+    },
+    "timeout": {
+      "elapsedMs": 4538,
+      "inert": false,
+      "contentVisible": "visible"
+    },
+    "logoErrorStillEnters": true
+  },
+  "errors": [],
+  "failures": []
+}

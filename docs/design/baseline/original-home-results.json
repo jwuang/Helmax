@@ -1,0 +1,1206 @@
+{
+  "browser": "149.0.7827.55",
+  "captures": [
+    {
+      "locale": "zh-cn",
+      "label": "desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "title": "以专业连接价值， 让合作走得更远。 · 企业名称",
+      "height": 3261,
+      "width": 1440,
+      "headings": [
+        "以专业连接价值，让合作走得更远。",
+        "看见需求，\n也看见更远的可能。",
+        "从想法，到行动。",
+        "需求梳理",
+        "方案规划",
+        "协作支持",
+        "把复杂留给思考，\n把清晰带给合作。",
+        "倾听与理解",
+        "梳理与共创",
+        "推进与沟通",
+        "让我们一起，\n打开新的可能。"
+      ],
+      "sections": [
+        {
+          "selector": ".site-header",
+          "top": 31,
+          "height": 93,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(248, 249, 245, 0.97)"
+        },
+        {
+          "selector": ".hero",
+          "top": 124,
+          "height": 818,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".hero h1",
+          "top": 232,
+          "height": 161,
+          "fontSize": "61.92px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".hero-intro p",
+          "top": 260,
+          "height": 53,
+          "fontSize": "14px",
+          "color": "rgb(93, 108, 112)",
+          "background": "rgba(0, 0, 0, 0)",
+          "text": "从一次深入交流，到一个清晰方案。让每个需求被认真理解，让每一步合作都有方向。"
+        },
+        {
+          "selector": ".hero-image",
+          "top": 437,
+          "height": 441,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgb(220, 230, 223)"
+        },
+        {
+          "selector": "#perspective",
+          "top": 942,
+          "height": 371,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".intro-copy p",
+          "top": 1080,
+          "height": 57,
+          "fontSize": "15px",
+          "color": "rgb(93, 108, 112)",
+          "background": "rgba(0, 0, 0, 0)",
+          "text": "好的合作，始于理解。我们重视清晰的沟通、务实的行动，以及持续的交流，让想法逐步成为可以落地的计划。"
+        },
+        {
+          "selector": ".services-section",
+          "top": 1313,
+          "height": 714,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgb(237, 240, 233)"
+        },
+        {
+          "selector": ".card-body p",
+          "top": 1809,
+          "height": 25,
+          "fontSize": "13px",
+          "color": "rgb(93, 108, 112)",
+          "background": "rgba(0, 0, 0, 0)",
+          "text": "厘清现状与目标，让接下来的每一步都有依据。"
+        },
+        {
+          "selector": ".approach-grid",
+          "top": 2027,
+          "height": 547,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".cta-section",
+          "top": 2573,
+          "height": 372,
+          "fontSize": "16px",
+          "color": "rgb(248, 249, 245)",
+          "background": "rgb(20, 45, 53)"
+        },
+        {
+          "selector": ".site-footer",
+          "top": 2945,
+          "height": 316,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ],
+      "smallVisibleLinks": [
+        {
+          "text": "首页",
+          "href": "/zh-cn/",
+          "width": 26,
+          "height": 84
+        },
+        {
+          "text": "向下探索",
+          "href": "#perspective",
+          "width": 71,
+          "height": 28
+        },
+        {
+          "text": "关于我们",
+          "href": "/zh-cn/about/",
+          "width": 52,
+          "height": 36
+        },
+        {
+          "text": "产品与服务",
+          "href": "/zh-cn/services/",
+          "width": 65,
+          "height": 36
+        },
+        {
+          "text": "联系我们",
+          "href": "/zh-cn/contact/",
+          "width": 92,
+          "height": 36
+        },
+        {
+          "text": "简体中文",
+          "href": "/zh-cn/",
+          "width": 40,
+          "height": 32
+        },
+        {
+          "text": "繁體中文",
+          "href": "/zh-hk/",
+          "width": 40,
+          "height": 32
+        },
+        {
+          "text": "English",
+          "href": "/en/",
+          "width": 34,
+          "height": 32
+        },
+        {
+          "text": "隐私说明",
+          "href": "/zh-cn/privacy/",
+          "width": 40,
+          "height": 32
+        }
+      ]
+    },
+    {
+      "locale": "zh-cn",
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "title": "以专业连接价值， 让合作走得更远。 · 企业名称",
+      "height": 4109,
+      "width": 390,
+      "headings": [
+        "以专业连接价值，让合作走得更远。",
+        "看见需求，\n也看见更远的可能。",
+        "从想法，到行动。",
+        "需求梳理",
+        "方案规划",
+        "协作支持",
+        "把复杂留给思考，\n把清晰带给合作。",
+        "倾听与理解",
+        "梳理与共创",
+        "推进与沟通",
+        "让我们一起，\n打开新的可能。"
+      ],
+      "sections": [
+        {
+          "selector": ".site-header",
+          "top": 31,
+          "height": 77,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(248, 249, 245, 0.97)"
+        },
+        {
+          "selector": ".hero",
+          "top": 108,
+          "height": 640,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".hero h1",
+          "top": 185,
+          "height": 87,
+          "fontSize": "30px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".hero-intro p",
+          "top": 298,
+          "height": 49,
+          "fontSize": "13px",
+          "color": "rgb(93, 108, 112)",
+          "background": "rgba(0, 0, 0, 0)",
+          "text": "从一次深入交流，到一个清晰方案。让每个需求被认真理解，让每一步合作都有方向。"
+        },
+        {
+          "selector": ".hero-image",
+          "top": 459,
+          "height": 226,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgb(220, 230, 223)"
+        },
+        {
+          "selector": "#perspective",
+          "top": 748,
+          "height": 411,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".intro-copy p",
+          "top": 967,
+          "height": 86,
+          "fontSize": "15px",
+          "color": "rgb(93, 108, 112)",
+          "background": "rgba(0, 0, 0, 0)",
+          "text": "好的合作，始于理解。我们重视清晰的沟通、务实的行动，以及持续的交流，让想法逐步成为可以落地的计划。"
+        },
+        {
+          "selector": ".services-section",
+          "top": 1159,
+          "height": 1434,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgb(237, 240, 233)"
+        },
+        {
+          "selector": ".card-body p",
+          "top": 1657,
+          "height": 25,
+          "fontSize": "13px",
+          "color": "rgb(93, 108, 112)",
+          "background": "rgba(0, 0, 0, 0)",
+          "text": "厘清现状与目标，让接下来的每一步都有依据。"
+        },
+        {
+          "selector": ".approach-grid",
+          "top": 2594,
+          "height": 677,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".cta-section",
+          "top": 3270,
+          "height": 423,
+          "fontSize": "16px",
+          "color": "rgb(248, 249, 245)",
+          "background": "rgb(20, 45, 53)"
+        },
+        {
+          "selector": ".site-footer",
+          "top": 3694,
+          "height": 416,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ],
+      "smallVisibleLinks": [
+        {
+          "text": "企业名称CORPORATE · 企业门户",
+          "href": "/zh-cn/",
+          "width": 132,
+          "height": 43
+        },
+        {
+          "text": "向下探索",
+          "href": "#perspective",
+          "width": 62,
+          "height": 28
+        },
+        {
+          "text": "企业名称CORPORATE · 企业门户",
+          "href": "/zh-cn/",
+          "width": 132,
+          "height": 43
+        },
+        {
+          "text": "关于我们",
+          "href": "/zh-cn/about/",
+          "width": 52,
+          "height": 36
+        },
+        {
+          "text": "产品与服务",
+          "href": "/zh-cn/services/",
+          "width": 65,
+          "height": 36
+        },
+        {
+          "text": "联系我们",
+          "href": "/zh-cn/contact/",
+          "width": 92,
+          "height": 36
+        },
+        {
+          "text": "简体中文",
+          "href": "/zh-cn/",
+          "width": 40,
+          "height": 32
+        },
+        {
+          "text": "繁體中文",
+          "href": "/zh-hk/",
+          "width": 40,
+          "height": 32
+        },
+        {
+          "text": "English",
+          "href": "/en/",
+          "width": 34,
+          "height": 32
+        },
+        {
+          "text": "隐私说明",
+          "href": "/zh-cn/privacy/",
+          "width": 40,
+          "height": 32
+        }
+      ]
+    },
+    {
+      "locale": "zh-hk",
+      "label": "desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "title": "以專業連繫價值， 讓合作走得更遠。 · 企業名稱",
+      "height": 3261,
+      "width": 1440,
+      "headings": [
+        "以專業連繫價值，讓合作走得更遠。",
+        "看見需求，\n也看見更遠的可能。",
+        "從想法，到行動。",
+        "需求梳理",
+        "方案規劃",
+        "協作支援",
+        "把複雜留給思考，\n把清晰帶給合作。",
+        "聆聽與理解",
+        "梳理與共創",
+        "推進與溝通",
+        "讓我們一起，\n打開新的可能。"
+      ],
+      "sections": [
+        {
+          "selector": ".site-header",
+          "top": 31,
+          "height": 93,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(248, 249, 245, 0.97)"
+        },
+        {
+          "selector": ".hero",
+          "top": 124,
+          "height": 818,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".hero h1",
+          "top": 232,
+          "height": 161,
+          "fontSize": "61.92px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".hero-intro p",
+          "top": 260,
+          "height": 53,
+          "fontSize": "14px",
+          "color": "rgb(93, 108, 112)",
+          "background": "rgba(0, 0, 0, 0)",
+          "text": "從一次深入交流，到一個清晰方案。讓每個需求被認真理解，讓每一步合作都有方向。"
+        },
+        {
+          "selector": ".hero-image",
+          "top": 437,
+          "height": 441,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgb(220, 230, 223)"
+        },
+        {
+          "selector": "#perspective",
+          "top": 942,
+          "height": 371,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".intro-copy p",
+          "top": 1080,
+          "height": 57,
+          "fontSize": "15px",
+          "color": "rgb(93, 108, 112)",
+          "background": "rgba(0, 0, 0, 0)",
+          "text": "好的合作，始於理解。我們重視清晰的溝通、務實的行動，以及持續的交流，讓想法逐步成為可以落實的計劃。"
+        },
+        {
+          "selector": ".services-section",
+          "top": 1313,
+          "height": 714,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgb(237, 240, 233)"
+        },
+        {
+          "selector": ".card-body p",
+          "top": 1809,
+          "height": 25,
+          "fontSize": "13px",
+          "color": "rgb(93, 108, 112)",
+          "background": "rgba(0, 0, 0, 0)",
+          "text": "釐清現況與目標，讓接下來的每一步都有依據。"
+        },
+        {
+          "selector": ".approach-grid",
+          "top": 2027,
+          "height": 547,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".cta-section",
+          "top": 2573,
+          "height": 372,
+          "fontSize": "16px",
+          "color": "rgb(248, 249, 245)",
+          "background": "rgb(20, 45, 53)"
+        },
+        {
+          "selector": ".site-footer",
+          "top": 2945,
+          "height": 316,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ],
+      "smallVisibleLinks": [
+        {
+          "text": "首頁",
+          "href": "/zh-hk/",
+          "width": 26,
+          "height": 84
+        },
+        {
+          "text": "向下探索",
+          "href": "#perspective",
+          "width": 71,
+          "height": 28
+        },
+        {
+          "text": "關於我們",
+          "href": "/zh-hk/about/",
+          "width": 52,
+          "height": 36
+        },
+        {
+          "text": "產品與服務",
+          "href": "/zh-hk/services/",
+          "width": 65,
+          "height": 36
+        },
+        {
+          "text": "聯絡我們",
+          "href": "/zh-hk/contact/",
+          "width": 92,
+          "height": 36
+        },
+        {
+          "text": "简体中文",
+          "href": "/zh-cn/",
+          "width": 40,
+          "height": 32
+        },
+        {
+          "text": "繁體中文",
+          "href": "/zh-hk/",
+          "width": 40,
+          "height": 32
+        },
+        {
+          "text": "English",
+          "href": "/en/",
+          "width": 34,
+          "height": 32
+        },
+        {
+          "text": "私隱聲明",
+          "href": "/zh-hk/privacy/",
+          "width": 40,
+          "height": 32
+        }
+      ]
+    },
+    {
+      "locale": "zh-hk",
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "title": "以專業連繫價值， 讓合作走得更遠。 · 企業名稱",
+      "height": 4109,
+      "width": 390,
+      "headings": [
+        "以專業連繫價值，讓合作走得更遠。",
+        "看見需求，\n也看見更遠的可能。",
+        "從想法，到行動。",
+        "需求梳理",
+        "方案規劃",
+        "協作支援",
+        "把複雜留給思考，\n把清晰帶給合作。",
+        "聆聽與理解",
+        "梳理與共創",
+        "推進與溝通",
+        "讓我們一起，\n打開新的可能。"
+      ],
+      "sections": [
+        {
+          "selector": ".site-header",
+          "top": 31,
+          "height": 77,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(248, 249, 245, 0.97)"
+        },
+        {
+          "selector": ".hero",
+          "top": 108,
+          "height": 640,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".hero h1",
+          "top": 185,
+          "height": 87,
+          "fontSize": "30px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".hero-intro p",
+          "top": 298,
+          "height": 49,
+          "fontSize": "13px",
+          "color": "rgb(93, 108, 112)",
+          "background": "rgba(0, 0, 0, 0)",
+          "text": "從一次深入交流，到一個清晰方案。讓每個需求被認真理解，讓每一步合作都有方向。"
+        },
+        {
+          "selector": ".hero-image",
+          "top": 459,
+          "height": 226,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgb(220, 230, 223)"
+        },
+        {
+          "selector": "#perspective",
+          "top": 748,
+          "height": 411,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".intro-copy p",
+          "top": 967,
+          "height": 86,
+          "fontSize": "15px",
+          "color": "rgb(93, 108, 112)",
+          "background": "rgba(0, 0, 0, 0)",
+          "text": "好的合作，始於理解。我們重視清晰的溝通、務實的行動，以及持續的交流，讓想法逐步成為可以落實的計劃。"
+        },
+        {
+          "selector": ".services-section",
+          "top": 1159,
+          "height": 1434,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgb(237, 240, 233)"
+        },
+        {
+          "selector": ".card-body p",
+          "top": 1657,
+          "height": 25,
+          "fontSize": "13px",
+          "color": "rgb(93, 108, 112)",
+          "background": "rgba(0, 0, 0, 0)",
+          "text": "釐清現況與目標，讓接下來的每一步都有依據。"
+        },
+        {
+          "selector": ".approach-grid",
+          "top": 2594,
+          "height": 677,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".cta-section",
+          "top": 3270,
+          "height": 423,
+          "fontSize": "16px",
+          "color": "rgb(248, 249, 245)",
+          "background": "rgb(20, 45, 53)"
+        },
+        {
+          "selector": ".site-footer",
+          "top": 3694,
+          "height": 416,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ],
+      "smallVisibleLinks": [
+        {
+          "text": "企業名稱CORPORATE · 企业门户",
+          "href": "/zh-hk/",
+          "width": 132,
+          "height": 43
+        },
+        {
+          "text": "向下探索",
+          "href": "#perspective",
+          "width": 62,
+          "height": 28
+        },
+        {
+          "text": "企業名稱CORPORATE · 企业门户",
+          "href": "/zh-hk/",
+          "width": 132,
+          "height": 43
+        },
+        {
+          "text": "關於我們",
+          "href": "/zh-hk/about/",
+          "width": 52,
+          "height": 36
+        },
+        {
+          "text": "產品與服務",
+          "href": "/zh-hk/services/",
+          "width": 65,
+          "height": 36
+        },
+        {
+          "text": "聯絡我們",
+          "href": "/zh-hk/contact/",
+          "width": 92,
+          "height": 36
+        },
+        {
+          "text": "简体中文",
+          "href": "/zh-cn/",
+          "width": 40,
+          "height": 32
+        },
+        {
+          "text": "繁體中文",
+          "href": "/zh-hk/",
+          "width": 40,
+          "height": 32
+        },
+        {
+          "text": "English",
+          "href": "/en/",
+          "width": 34,
+          "height": 32
+        },
+        {
+          "text": "私隱聲明",
+          "href": "/zh-hk/privacy/",
+          "width": 40,
+          "height": 32
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "label": "desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "title": "Shared ambition. New possibilities. · Your Company",
+      "height": 3285,
+      "width": 1440,
+      "headings": [
+        "Shared ambition.New possibilities.",
+        "Understand today.\nSee beyond tomorrow.",
+        "From ideas to action.",
+        "Discovery & direction",
+        "Planning & alignment",
+        "Collaboration & support",
+        "Thoughtful thinking.\nClear collaboration.",
+        "Listen & understand",
+        "Shape & collaborate",
+        "Progress & communicate",
+        "The next possibility\nstarts with you."
+      ],
+      "sections": [
+        {
+          "selector": ".site-header",
+          "top": 31,
+          "height": 93,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(248, 249, 245, 0.97)"
+        },
+        {
+          "selector": ".hero",
+          "top": 124,
+          "height": 818,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".hero h1",
+          "top": 232,
+          "height": 161,
+          "fontSize": "61.92px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".hero-intro p",
+          "top": 234,
+          "height": 80,
+          "fontSize": "14px",
+          "color": "rgb(93, 108, 112)",
+          "background": "rgba(0, 0, 0, 0)",
+          "text": "Every meaningful partnership starts with understanding. A thoughtful conversation. A clear direction. A way forward, together."
+        },
+        {
+          "selector": ".hero-image",
+          "top": 437,
+          "height": 441,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgb(220, 230, 223)"
+        },
+        {
+          "selector": "#perspective",
+          "top": 942,
+          "height": 371,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".intro-copy p",
+          "top": 1080,
+          "height": 86,
+          "fontSize": "15px",
+          "color": "rgb(93, 108, 112)",
+          "background": "rgba(0, 0, 0, 0)",
+          "text": "Good collaboration starts with listening. Clear communication and practical thinking help turn an initial idea into a shared plan of action."
+        },
+        {
+          "selector": ".services-section",
+          "top": 1313,
+          "height": 739,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgb(237, 240, 233)"
+        },
+        {
+          "selector": ".card-body p",
+          "top": 1809,
+          "height": 49,
+          "fontSize": "13px",
+          "color": "rgb(93, 108, 112)",
+          "background": "rgba(0, 0, 0, 0)",
+          "text": "Understand your context and establish a clear direction for the work ahead."
+        },
+        {
+          "selector": ".approach-grid",
+          "top": 2051,
+          "height": 547,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".cta-section",
+          "top": 2598,
+          "height": 372,
+          "fontSize": "16px",
+          "color": "rgb(248, 249, 245)",
+          "background": "rgb(20, 45, 53)"
+        },
+        {
+          "selector": ".site-footer",
+          "top": 2970,
+          "height": 316,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ],
+      "smallVisibleLinks": [
+        {
+          "text": "Home",
+          "href": "/en/",
+          "width": 37,
+          "height": 84
+        },
+        {
+          "text": "Explore below",
+          "href": "#perspective",
+          "width": 109,
+          "height": 28
+        },
+        {
+          "text": "About us",
+          "href": "/en/about/",
+          "width": 54,
+          "height": 36
+        },
+        {
+          "text": "What we do",
+          "href": "/en/services/",
+          "width": 71,
+          "height": 36
+        },
+        {
+          "text": "Contact us",
+          "href": "/en/contact/",
+          "width": 104,
+          "height": 36
+        },
+        {
+          "text": "简体中文",
+          "href": "/zh-cn/",
+          "width": 40,
+          "height": 32
+        },
+        {
+          "text": "繁體中文",
+          "href": "/zh-hk/",
+          "width": 40,
+          "height": 32
+        },
+        {
+          "text": "English",
+          "href": "/en/",
+          "width": 34,
+          "height": 32
+        },
+        {
+          "text": "Privacy",
+          "href": "/en/privacy/",
+          "width": 34,
+          "height": 32
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "title": "Shared ambition. New possibilities. · Your Company",
+      "height": 4233,
+      "width": 390,
+      "headings": [
+        "Shared ambition.New possibilities.",
+        "Understand today.\nSee beyond tomorrow.",
+        "From ideas to action.",
+        "Discovery & direction",
+        "Planning & alignment",
+        "Collaboration & support",
+        "Thoughtful thinking.\nClear collaboration.",
+        "Listen & understand",
+        "Shape & collaborate",
+        "Progress & communicate",
+        "The next possibility\nstarts with you."
+      ],
+      "sections": [
+        {
+          "selector": ".site-header",
+          "top": 31,
+          "height": 77,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(248, 249, 245, 0.97)"
+        },
+        {
+          "selector": ".hero",
+          "top": 108,
+          "height": 665,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".hero h1",
+          "top": 185,
+          "height": 87,
+          "fontSize": "30px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".hero-intro p",
+          "top": 298,
+          "height": 74,
+          "fontSize": "13px",
+          "color": "rgb(93, 108, 112)",
+          "background": "rgba(0, 0, 0, 0)",
+          "text": "Every meaningful partnership starts with understanding. A thoughtful conversation. A clear direction. A way forward, together."
+        },
+        {
+          "selector": ".hero-image",
+          "top": 484,
+          "height": 226,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgb(220, 230, 223)"
+        },
+        {
+          "selector": "#perspective",
+          "top": 772,
+          "height": 411,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".intro-copy p",
+          "top": 991,
+          "height": 86,
+          "fontSize": "15px",
+          "color": "rgb(93, 108, 112)",
+          "background": "rgba(0, 0, 0, 0)",
+          "text": "Good collaboration starts with listening. Clear communication and practical thinking help turn an initial idea into a shared plan of action."
+        },
+        {
+          "selector": ".services-section",
+          "top": 1184,
+          "height": 1509,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgb(237, 240, 233)"
+        },
+        {
+          "selector": ".card-body p",
+          "top": 1681,
+          "height": 49,
+          "fontSize": "13px",
+          "color": "rgb(93, 108, 112)",
+          "background": "rgba(0, 0, 0, 0)",
+          "text": "Understand your context and establish a clear direction for the work ahead."
+        },
+        {
+          "selector": ".approach-grid",
+          "top": 2692,
+          "height": 702,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".cta-section",
+          "top": 3394,
+          "height": 423,
+          "fontSize": "16px",
+          "color": "rgb(248, 249, 245)",
+          "background": "rgb(20, 45, 53)"
+        },
+        {
+          "selector": ".site-footer",
+          "top": 3817,
+          "height": 416,
+          "fontSize": "16px",
+          "color": "rgb(20, 45, 53)",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ],
+      "smallVisibleLinks": [
+        {
+          "text": "Your CompanyCORPORATE",
+          "href": "/en/",
+          "width": 173,
+          "height": 43
+        },
+        {
+          "text": "Explore below",
+          "href": "#perspective",
+          "width": 92,
+          "height": 28
+        },
+        {
+          "text": "Your CompanyCORPORATE",
+          "href": "/en/",
+          "width": 173,
+          "height": 43
+        },
+        {
+          "text": "About us",
+          "href": "/en/about/",
+          "width": 54,
+          "height": 36
+        },
+        {
+          "text": "What we do",
+          "href": "/en/services/",
+          "width": 71,
+          "height": 36
+        },
+        {
+          "text": "Contact us",
+          "href": "/en/contact/",
+          "width": 104,
+          "height": 36
+        },
+        {
+          "text": "简体中文",
+          "href": "/zh-cn/",
+          "width": 40,
+          "height": 32
+        },
+        {
+          "text": "繁體中文",
+          "href": "/zh-hk/",
+          "width": 40,
+          "height": 32
+        },
+        {
+          "text": "English",
+          "href": "/en/",
+          "width": 34,
+          "height": 32
+        },
+        {
+          "text": "Privacy",
+          "href": "/en/privacy/",
+          "width": 34,
+          "height": 32
+        }
+      ]
+    }
+  ],
+  "overflow": [
+    {
+      "locale": "zh-cn",
+      "width": 320,
+      "actual": 320
+    },
+    {
+      "locale": "zh-hk",
+      "width": 320,
+      "actual": 320
+    },
+    {
+      "locale": "en",
+      "width": 320,
+      "actual": 321
+    },
+    {
+      "locale": "zh-cn",
+      "width": 390,
+      "actual": 390
+    },
+    {
+      "locale": "zh-hk",
+      "width": 390,
+      "actual": 390
+    },
+    {
+      "locale": "en",
+      "width": 390,
+      "actual": 390
+    },
+    {
+      "locale": "zh-cn",
+      "width": 768,
+      "actual": 768
+    },
+    {
+      "locale": "zh-hk",
+      "width": 768,
+      "actual": 768
+    },
+    {
+      "locale": "en",
+      "width": 768,
+      "actual": 768
+    },
+    {
+      "locale": "zh-cn",
+      "width": 1024,
+      "actual": 1024
+    },
+    {
+      "locale": "zh-hk",
+      "width": 1024,
+      "actual": 1024
+    },
+    {
+      "locale": "en",
+      "width": 1024,
+      "actual": 1024
+    },
+    {
+      "locale": "zh-cn",
+      "width": 1440,
+      "actual": 1440
+    },
+    {
+      "locale": "zh-hk",
+      "width": 1440,
+      "actual": 1440
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "actual": 1440
+    }
+  ],
+  "interactions": {
+    "skipLinkFocus": true,
+    "mobileMenuVisible": true,
+    "escapeDismissesMenu": true,
+    "languageSwitchUrl": "http://127.0.0.1:4322/en/",
+    "contactMain": "首页\n/\n联系我们\n\n联系我们\n\n一次交流，\n一个新的开始。\n\n选择适合你的方式，与我们建立联系。\n\n联系方式将在企业信息确认后公布。",
+    "noJsHeadingVisible": true,
+    "noJsMenuVisible": true
+  },
+  "accessibility": [
+    {
+      "label": "desktop",
+      "violations": []
+    },
+    {
+      "label": "mobile",
+      "violations": []
+    }
+  ],
+  "errors": []
+}

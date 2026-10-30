@@ -10,3 +10,5 @@ reports/
 *.log
 .DS_Store
 artifacts/
+# Windows download metadata is not a project asset.
+*:Zone.Identifier

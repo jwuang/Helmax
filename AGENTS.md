@@ -32,3 +32,7 @@ History favors imperative, descriptive subjects, sometimes with a `docs:` prefix
 ## Content & Configuration
 
 Translations share a stable `translationKey`; `routeSlug` uses lowercase kebab-case. Keep unreviewed content as drafts and use Markdown without raw HTML. Follow `docs/CONTENT.md`. Production requires an actual HTTPS `SITE_URL` and completed publication/privacy review flags. Use `pnpm build` to enforce those checks. Keep secrets out of browser code and `PUBLIC_*` variables; CI validates previews without deploying.
+
+## Helmax Design Continuation
+
+Before continuing homepage or design work, read `docs/PROJECT-STATUS.md` for confirmed requirements, current artifacts, and next steps. `docs/CHAT-LOG.md` records the project conversation and design decisions. The latest design is the independent prototype at `docs/design/helmax-exhibition-prototype.html`; it has not yet replaced the Astro homepage. Preserve the confirmed requirements rather than restarting the requirements interview. The repository includes the local `ui-ux-pro-max` skill and its upstream license.
