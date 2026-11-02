@@ -1,6 +1,12 @@
 # Helmax 官网：项目进度与接续说明
 
-更新日期：2026-10-30。当前阶段：需求梳理与可交互视觉概念稿，尚未迁入正式 Astro 三语首页。
+更新日期：2026-11-03。当前阶段：需求梳理与可交互视觉概念稿；已配置将最新概念稿作为 GitHub Pages 首页，尚未迁入正式 Astro 三语首页。
+
+## GitHub Pages 发布入口
+
+用户已确认 Pages 首页直接展示最新 Helmax 交互概念稿。`.github/workflows/pages.yml` 将其与所需的三张展示图片单独打包、验证并发布，默认地址为 <https://jwuang.github.io/corporate-portal/>。首次启用和工作流运行说明见 [GitHub Pages 部署指南](GITHUB-PAGES.md)。部署成功以 GitHub Actions 的 `deploy` 结果为准。
+
+Pages 页面继续标注概念稿并禁止搜索收录；正式三语 Astro 主站的发布审核要求保持原状。
 
 ## 从这里继续
 
@@ -108,4 +114,4 @@ node scripts/check-design-prototype.mjs
 3. 在现有 Astro 组件、布局、配置与翻译体系中实现已确定的设计；沿用现有内容与发布约束。
 4. 运行相应检查、三语与各尺寸截图、浏览器与无障碍验证；正式发布另按原项目流程执行。
 
-本次操作目标是把设计进度和对话提交到当前 `main` 分支并推送 `origin`，不涉及生产站部署。
+上一阶段已将设计进度和对话保存到 `main` 并推送 `origin`。本阶段新增独立概念稿的 GitHub Pages 发布配置，正式三语主站仍待后续实现与审核。

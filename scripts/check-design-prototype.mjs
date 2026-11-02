@@ -5,7 +5,7 @@ import { join } from 'node:path';
 import { mkdir, writeFile } from 'node:fs/promises';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
-const source = pathToFileURL(join(projectRoot, 'docs/design/helmax-exhibition-prototype.html')).href;
+const source = pathToFileURL(join(projectRoot, process.argv.includes('--built') ? 'dist-pages/index.html' : 'docs/design/helmax-exhibition-prototype.html')).href;
 const out = join(projectRoot, 'reports/design-prototype');
 await mkdir(out, { recursive: true });
 const browser = await chromium.launch({

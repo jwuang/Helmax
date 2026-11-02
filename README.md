@@ -14,6 +14,14 @@
 
 概念稿尚未迁入 `src/` 的正式三语页面。后续设计保留 Helmax 统一品牌、统一“产品”展示、全屏章节、前置企业文化，以及“利他、专业、效率、创新”四个关键词。
 
+## GitHub Pages 展示
+
+GitHub Pages 首页直接展示上述**最新 Helmax 全屏交互概念稿**，保留概念稿说明及 `noindex`。部署地址为 <https://jwuang.github.io/corporate-portal/>。
+
+首次启用：打开仓库 **Settings → Pages → Build and deployment → Source**，选择 **GitHub Actions**。推送相关文件到 `main` 后，`Deploy Helmax concept to GitHub Pages` 工作流自动验证并发布；也可在 **Actions** 中手动运行。
+
+`pnpm build:pages` 将 HTML 和三张展示图片打包到 `dist-pages/`，`pnpm test:pages` 检查打包后的页面。操作与回退说明见 [GitHub Pages 部署指南](docs/GITHUB-PAGES.md)。
+
 ## 开始开发
 
 要求 Node 24.19.0+（24.x）、pnpm 11.25.0。推荐 `npm install -g pnpm@11.25.0`，然后：
@@ -35,6 +43,8 @@ GitHub **Code → Codespaces → Create codespace on main** 可按 `.devcontaine
 | `pnpm lint` | ESLint |
 | `pnpm test` | 草稿隔离、内容一致性、链接安全测试 |
 | `pnpm build:preview` | 预览静态产物，明确标识样稿且 noindex |
+| `pnpm build:pages` | 打包 GitHub Pages 首页使用的最新 Helmax 概念稿 |
+| `pnpm test:pages` | 检查打包概念稿的六种尺寸、交互、加载和无障碍 |
 | `pnpm preview` | 检查构建产物 |
 | `pnpm test:e2e` | Chromium / Firefox / WebKit 浏览器测试 |
 | `pnpm audit:security` | 高危及严重依赖漏洞门禁 |
@@ -59,7 +69,7 @@ pnpm build
 
 所有正式服务内容应设 `draft: false`、`previewOnly: false`；预览样例自动从正式构建中剔除。没有发布内容的栏目从导航隐藏；其列表页保留为 noindex 空状态，供缺少译文时回退。
 
-构建生成 `dist/`、sitemap、robots.txt、build-info.json，并检查所有 HTML 内部链接与资源。CI 只验证并保留预览产物，**不会自动发布**。生产只需上传 `dist/`，不需在服务器安装 Node。
+构建生成 `dist/`、sitemap、robots.txt、build-info.json，并检查所有 HTML 内部链接与资源。`Website checks` CI 验证并保留三语主站预览产物；独立的 Pages 工作流只发布 `dist-pages/` 中的 Helmax 概念稿。正式三语主站的生产输出仍为 `dist/`，不需在服务器安装 Node。
 
 ## 手动运维与验证
 
