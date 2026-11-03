@@ -213,3 +213,11 @@
 > 我手动安装好了docker并且启动了
 
 再次检查确认 Docker 已安装，当前 `arch` 会话仍无套接字访问权限，免密 `sudo` 不可用。已提供 `sudo bash scripts/test-pages-webkit-container.sh`，由用户在 WSL 终端输入本机密码后运行；测试结果等待反馈。
+
+**用户：**
+
+> 怎么查看是否通过？返回了一大堆，最后是个JSON字符串
+
+已说明：`browser` 应为 `webkit`、视口检查数量应为 18，`failures`、`errors` 和各项 `violations` 应全部为空；命令结束后立即执行 `echo $?`，返回 0 表示成功。检查脚本也已增加结尾 `PASS`／`FAIL` 提示，方便后续直接判断。
+
+三语官网提交 `1015f9e` 已推送并完成 Pages 发布，三个线上语言地址均返回 HTTP 200，文档语言和标题均正确。

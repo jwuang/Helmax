@@ -12,6 +12,8 @@
 
 首页源文件沿用历史路径 [helmax-exhibition-prototype.html](design/helmax-exhibition-prototype.html)。`scripts/build-pages.ts` 从同一 HTML 模板与内嵌 `home-translations` 字典生成完整三语静态页面，`.github/workflows/pages.yml` 验证并发布到 GitHub Pages。页面标题与页脚已改为正式官网表述。不要再把该版本当作等待迁移才能使用的概念稿。
 
+三语官网提交 `1015f9e` 已推送 `origin/main`，[Pages 工作流](https://github.com/jwuang/corporate-portal/actions/runs/41601868128) 构建与部署成功；已读取三个线上地址，均返回 HTTP 200，且文档语言和标题正确。
+
 仓库 `src/` 仍是之前的 Astro 样稿，尚未套用当前 Helmax 官网设计。当前线上官网以 Pages 发布内容为准。网站继续沿用既有的 `noindex, nofollow` 与禁止抓取设置；后续收录策略可单独调整。
 
 ## 从这里继续
@@ -108,7 +110,7 @@ pnpm test:pages
 
 `pnpm test:pages` 通过临时本地 HTTP 服务检查 `/corporate-portal/` 下的发布产物。直接验证本地源文件可运行 `node scripts/check-design-prototype.mjs`。结果及截图写入已忽略的 `reports/design-prototype/`，不会自动覆盖仓库中的截图。
 
-用户询问 WSL 安装 WebKit 依赖后，已确认当前 Arch WSL2 无 `apt-get`，且 `sudo` 需要密码。用户已手动安装并启动 Docker；当前会话无 Docker 套接字权限，已请用户手动运行 `sudo bash scripts/test-pages-webkit-container.sh`，在官方 Ubuntu 容器中检查当前官网，结果待反馈。可通过 `pnpm test:pages --browser=webkit` 指定浏览器；操作见 [验证与验收](VALIDATION.md#wsl-中的-webkit)。
+用户询问 WSL 安装 WebKit 依赖后，已确认当前 Arch WSL2 无 `apt-get`，且 `sudo` 需要密码。用户已手动安装并启动 Docker，并执行 `sudo bash scripts/test-pages-webkit-container.sh`，报告输出了最终 JSON；结果待确认。当前助手会话仍无 Docker 套接字权限。可通过 `pnpm test:pages --browser=webkit` 指定浏览器；检查结尾已增加明确的 `PASS`／`FAIL` 提示，操作见 [验证与验收](VALIDATION.md#wsl-中的-webkit)。
 
 ## 仍需补充的资料
 

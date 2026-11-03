@@ -252,7 +252,12 @@ try {
     loading: results.loading,
     errors: results.errors,
   }, null, 2));
-  if (results.failures.length || results.errors.length || results.accessibility.some((item) => item.violations.length)) process.exitCode = 1;
+  if (results.failures.length || results.errors.length || results.accessibility.some((item) => item.violations.length)) {
+    console.error(`FAIL: ${browserName}. See failures, errors and accessibility violations above.`);
+    process.exitCode = 1;
+  } else {
+    console.log(`PASS: ${browserName}. All ${results.viewports.length} viewport checks, interactions, loading and accessibility checks passed.`);
+  }
 } finally {
   await browser.close();
   if (server) await new Promise((done) => server.close(done));

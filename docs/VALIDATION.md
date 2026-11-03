@@ -34,6 +34,8 @@ sudo systemctl start docker
 sudo bash scripts/test-pages-webkit-container.sh
 ```
 
-脚本使用与本项目 Playwright 1.64.1 一致的 `mcr.microsoft.com/playwright:v1.64.1-noble` 镜像，安装 pnpm 11.25.0 和锁定依赖后，构建并检查正式官网的三语 WebKit 页面。仓库只读挂载；构建在容器内的独立副本执行，不修改宿主文件。结果在终端输出，容器退出时清理临时副本。首次运行需要下载镜像与依赖。当前机器尚未执行该容器检查，不能算作 WebKit 已通过。
+脚本使用与本项目 Playwright 1.64.1 一致的 `mcr.microsoft.com/playwright:v1.64.1-noble` 镜像，安装 pnpm 11.25.0 和锁定依赖后，构建并检查正式官网的三语 WebKit 页面。仓库只读挂载；构建在容器内的独立副本执行，不修改宿主文件。结果在终端输出，容器退出时清理临时副本。首次运行需要下载镜像与依赖。用户已手动执行并报告输出了最终 JSON，检查结果待确认。
+
+检查脚本在 JSON 后会打印 `PASS: webkit` 或 `FAIL: webkit`。JSON 中 `viewportChecks` 应为 18，`failures`、`errors` 及每项无障碍 `violations` 均应为空数组。命令完成后立即运行 `echo $?` 也可查看退出码：`0` 为通过，非 `0` 为失败；该退出码会被下一条终端命令覆盖。
 
 参考：[官方系统要求](https://playwright.dev/docs/intro#system-requirements)、[浏览器依赖安装](https://playwright.dev/docs/browsers#install-system-dependencies)、[官方容器与版本匹配](https://playwright.dev/docs/docker)。
