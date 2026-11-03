@@ -1,4 +1,4 @@
-name: Deploy Helmax concept to GitHub Pages
+name: Deploy Helmax website to GitHub Pages
 
 on:
   push:
@@ -47,7 +47,7 @@ jobs:
       - run: pnpm test:pages
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
-      - name: Upload concept preview
+      - name: Upload Helmax website
         uses: actions/upload-pages-artifact@v4
         with:
           path: dist-pages

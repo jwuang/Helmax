@@ -1,468 +1,903 @@
 {
+  "browser": "chromium",
+  "target": "dist-pages",
   "viewports": [
     {
+      "locale": "zh-cn",
       "width": 1440,
       "height": 900,
+      "lang": "zh-CN",
       "scrollWidth": 1440,
-      "viewportWidth": 1440,
       "sections": [
         {
           "id": "hero",
           "height": 900,
-          "contentHeight": 558,
-          "paddingTop": "122px",
-          "paddingBottom": "76px",
-          "contentInside": true,
-          "minHeight": "900px"
+          "contentInside": true
         },
         {
           "id": "culture",
           "height": 900,
-          "contentHeight": 538,
-          "paddingTop": "122px",
-          "paddingBottom": "76px",
-          "contentInside": true,
-          "minHeight": "900px"
+          "contentInside": true
         },
         {
           "id": "about",
           "height": 900,
-          "contentHeight": 558,
-          "paddingTop": "122px",
-          "paddingBottom": "76px",
-          "contentInside": true,
-          "minHeight": "900px"
+          "contentInside": true
         },
         {
           "id": "products",
           "height": 900,
-          "contentHeight": 693,
-          "paddingTop": "122px",
-          "paddingBottom": "76px",
-          "contentInside": true,
-          "minHeight": "900px"
+          "contentInside": true
         },
         {
           "id": "services",
           "height": 900,
-          "contentHeight": 491,
-          "paddingTop": "122px",
-          "paddingBottom": "76px",
-          "contentInside": true,
-          "minHeight": "900px"
+          "contentInside": true
         },
         {
           "id": "contact",
           "height": 900,
-          "contentHeight": 295,
-          "paddingTop": "122px",
-          "paddingBottom": "76px",
-          "contentInside": true,
-          "minHeight": "900px"
+          "contentInside": true
         }
       ],
       "missingImages": [],
-      "values": [
-        "利他",
-        "专业",
-        "效率",
-        "创新"
-      ]
+      "values": "利他/专业/效率/创新",
+      "loading": "正在准备"
     },
     {
+      "locale": "zh-cn",
       "width": 1920,
       "height": 1080,
+      "lang": "zh-CN",
       "scrollWidth": 1920,
-      "viewportWidth": 1920,
       "sections": [
         {
           "id": "hero",
           "height": 1080,
-          "contentHeight": 600,
-          "paddingTop": "122px",
-          "paddingBottom": "76px",
-          "contentInside": true,
-          "minHeight": "1080px"
+          "contentInside": true
         },
         {
           "id": "culture",
           "height": 1080,
-          "contentHeight": 551,
-          "paddingTop": "122px",
-          "paddingBottom": "76px",
-          "contentInside": true,
-          "minHeight": "1080px"
+          "contentInside": true
         },
         {
           "id": "about",
           "height": 1080,
-          "contentHeight": 644,
-          "paddingTop": "122px",
-          "paddingBottom": "76px",
-          "contentInside": true,
-          "minHeight": "1080px"
+          "contentInside": true
         },
         {
           "id": "products",
           "height": 1080,
-          "contentHeight": 736,
-          "paddingTop": "122px",
-          "paddingBottom": "76px",
-          "contentInside": true,
-          "minHeight": "1080px"
+          "contentInside": true
         },
         {
           "id": "services",
           "height": 1080,
-          "contentHeight": 491,
-          "paddingTop": "122px",
-          "paddingBottom": "76px",
-          "contentInside": true,
-          "minHeight": "1080px"
+          "contentInside": true
         },
         {
           "id": "contact",
           "height": 1080,
-          "contentHeight": 306,
-          "paddingTop": "122px",
-          "paddingBottom": "76px",
-          "contentInside": true,
-          "minHeight": "1080px"
+          "contentInside": true
         }
       ],
       "missingImages": [],
-      "values": [
-        "利他",
-        "专业",
-        "效率",
-        "创新"
-      ]
+      "values": "利他/专业/效率/创新",
+      "loading": "正在准备"
     },
     {
+      "locale": "zh-cn",
       "width": 1280,
       "height": 720,
+      "lang": "zh-CN",
       "scrollWidth": 1280,
-      "viewportWidth": 1280,
       "sections": [
         {
           "id": "hero",
           "height": 720,
-          "contentHeight": 446,
-          "paddingTop": "106px",
-          "paddingBottom": "64px",
-          "contentInside": true,
-          "minHeight": "720px"
+          "contentInside": true
         },
         {
           "id": "culture",
           "height": 720,
-          "contentHeight": 463,
-          "paddingTop": "106px",
-          "paddingBottom": "64px",
-          "contentInside": true,
-          "minHeight": "720px"
+          "contentInside": true
         },
         {
           "id": "about",
           "height": 720,
-          "contentHeight": 491,
-          "paddingTop": "106px",
-          "paddingBottom": "64px",
-          "contentInside": true,
-          "minHeight": "720px"
+          "contentInside": true
         },
         {
           "id": "products",
           "height": 720,
-          "contentHeight": 543,
-          "paddingTop": "106px",
-          "paddingBottom": "64px",
-          "contentInside": true,
-          "minHeight": "720px"
+          "contentInside": true
         },
         {
           "id": "services",
           "height": 720,
-          "contentHeight": 491,
-          "paddingTop": "106px",
-          "paddingBottom": "64px",
-          "contentInside": true,
-          "minHeight": "720px"
+          "contentInside": true
         },
         {
           "id": "contact",
           "height": 720,
-          "contentHeight": 176,
-          "paddingTop": "106px",
-          "paddingBottom": "64px",
-          "contentInside": true,
-          "minHeight": "720px"
+          "contentInside": true
         }
       ],
       "missingImages": [],
-      "values": [
-        "利他",
-        "专业",
-        "效率",
-        "创新"
-      ]
+      "values": "利他/专业/效率/创新",
+      "loading": "正在准备"
     },
     {
+      "locale": "zh-cn",
       "width": 768,
       "height": 1024,
+      "lang": "zh-CN",
       "scrollWidth": 768,
-      "viewportWidth": 768,
       "sections": [
         {
           "id": "hero",
           "height": 1024,
-          "contentHeight": 669,
-          "paddingTop": "108px",
-          "paddingBottom": "70px",
-          "contentInside": true,
-          "minHeight": "1024px"
+          "contentInside": true
         },
         {
           "id": "culture",
           "height": 1040,
-          "contentHeight": 862,
-          "paddingTop": "108px",
-          "paddingBottom": "70px",
-          "contentInside": true,
-          "minHeight": "1024px"
+          "contentInside": true
         },
         {
           "id": "about",
           "height": 1029,
-          "contentHeight": 851,
-          "paddingTop": "108px",
-          "paddingBottom": "70px",
-          "contentInside": true,
-          "minHeight": "1024px"
+          "contentInside": true
         },
         {
           "id": "products",
           "height": 1504,
-          "contentHeight": 1326,
-          "paddingTop": "108px",
-          "paddingBottom": "70px",
-          "contentInside": true,
-          "minHeight": "1024px"
+          "contentInside": true
         },
         {
           "id": "services",
           "height": 1024,
-          "contentHeight": 773,
-          "paddingTop": "108px",
-          "paddingBottom": "70px",
-          "contentInside": true,
-          "minHeight": "1024px"
+          "contentInside": true
         },
         {
           "id": "contact",
           "height": 1024,
-          "contentHeight": 398,
-          "paddingTop": "108px",
-          "paddingBottom": "180px",
-          "contentInside": true,
-          "minHeight": "1024px"
+          "contentInside": true
         }
       ],
       "missingImages": [],
-      "values": [
-        "利他",
-        "专业",
-        "效率",
-        "创新"
-      ]
+      "values": "利他/专业/效率/创新",
+      "loading": "正在准备"
     },
     {
+      "locale": "zh-cn",
       "width": 390,
       "height": 844,
+      "lang": "zh-CN",
       "scrollWidth": 390,
-      "viewportWidth": 390,
       "sections": [
         {
           "id": "hero",
           "height": 844,
-          "contentHeight": 578,
-          "paddingTop": "108px",
-          "paddingBottom": "70px",
-          "contentInside": true,
-          "minHeight": "844px"
+          "contentInside": true
         },
         {
           "id": "culture",
           "height": 1091,
-          "contentHeight": 913,
-          "paddingTop": "108px",
-          "paddingBottom": "70px",
-          "contentInside": true,
-          "minHeight": "844px"
+          "contentInside": true
         },
         {
           "id": "about",
           "height": 844,
-          "contentHeight": 653,
-          "paddingTop": "108px",
-          "paddingBottom": "70px",
-          "contentInside": true,
-          "minHeight": "844px"
+          "contentInside": true
         },
         {
           "id": "products",
           "height": 1147,
-          "contentHeight": 969,
-          "paddingTop": "108px",
-          "paddingBottom": "70px",
-          "contentInside": true,
-          "minHeight": "844px"
+          "contentInside": true
         },
         {
           "id": "services",
           "height": 913,
-          "contentHeight": 735,
-          "paddingTop": "108px",
-          "paddingBottom": "70px",
-          "contentInside": true,
-          "minHeight": "844px"
+          "contentInside": true
         },
         {
           "id": "contact",
           "height": 844,
-          "contentHeight": 344,
-          "paddingTop": "108px",
-          "paddingBottom": "180px",
-          "contentInside": true,
-          "minHeight": "844px"
+          "contentInside": true
         }
       ],
       "missingImages": [],
-      "values": [
-        "利他",
-        "专业",
-        "效率",
-        "创新"
-      ]
+      "values": "利他/专业/效率/创新",
+      "loading": "正在准备"
     },
     {
+      "locale": "zh-cn",
       "width": 320,
       "height": 740,
+      "lang": "zh-CN",
       "scrollWidth": 320,
-      "viewportWidth": 320,
       "sections": [
         {
           "id": "hero",
           "height": 740,
-          "contentHeight": 557,
-          "paddingTop": "108px",
-          "paddingBottom": "70px",
-          "contentInside": true,
-          "minHeight": "740px"
+          "contentInside": true
         },
         {
           "id": "culture",
           "height": 1119,
-          "contentHeight": 941,
-          "paddingTop": "108px",
-          "paddingBottom": "70px",
-          "contentInside": true,
-          "minHeight": "740px"
+          "contentInside": true
         },
         {
           "id": "about",
           "height": 829,
-          "contentHeight": 651,
-          "paddingTop": "108px",
-          "paddingBottom": "70px",
-          "contentInside": true,
-          "minHeight": "740px"
+          "contentInside": true
         },
         {
           "id": "products",
           "height": 1149,
-          "contentHeight": 971,
-          "paddingTop": "108px",
-          "paddingBottom": "70px",
-          "contentInside": true,
-          "minHeight": "740px"
+          "contentInside": true
         },
         {
           "id": "services",
           "height": 1002,
-          "contentHeight": 824,
-          "paddingTop": "108px",
-          "paddingBottom": "70px",
-          "contentInside": true,
-          "minHeight": "740px"
+          "contentInside": true
         },
         {
           "id": "contact",
           "height": 740,
-          "contentHeight": 344,
-          "paddingTop": "108px",
-          "paddingBottom": "180px",
-          "contentInside": true,
-          "minHeight": "740px"
+          "contentInside": true
         }
       ],
       "missingImages": [],
-      "values": [
-        "利他",
-        "专业",
-        "效率",
-        "创新"
-      ]
+      "values": "利他/专业/效率/创新",
+      "loading": "正在准备"
+    },
+    {
+      "locale": "zh-hk",
+      "width": 1440,
+      "height": 900,
+      "lang": "zh-HK",
+      "scrollWidth": 1440,
+      "sections": [
+        {
+          "id": "hero",
+          "height": 900,
+          "contentInside": true
+        },
+        {
+          "id": "culture",
+          "height": 900,
+          "contentInside": true
+        },
+        {
+          "id": "about",
+          "height": 900,
+          "contentInside": true
+        },
+        {
+          "id": "products",
+          "height": 900,
+          "contentInside": true
+        },
+        {
+          "id": "services",
+          "height": 900,
+          "contentInside": true
+        },
+        {
+          "id": "contact",
+          "height": 900,
+          "contentInside": true
+        }
+      ],
+      "missingImages": [],
+      "values": "利他/專業/效率/創新",
+      "loading": "正在準備"
+    },
+    {
+      "locale": "zh-hk",
+      "width": 1920,
+      "height": 1080,
+      "lang": "zh-HK",
+      "scrollWidth": 1920,
+      "sections": [
+        {
+          "id": "hero",
+          "height": 1080,
+          "contentInside": true
+        },
+        {
+          "id": "culture",
+          "height": 1080,
+          "contentInside": true
+        },
+        {
+          "id": "about",
+          "height": 1080,
+          "contentInside": true
+        },
+        {
+          "id": "products",
+          "height": 1080,
+          "contentInside": true
+        },
+        {
+          "id": "services",
+          "height": 1080,
+          "contentInside": true
+        },
+        {
+          "id": "contact",
+          "height": 1080,
+          "contentInside": true
+        }
+      ],
+      "missingImages": [],
+      "values": "利他/專業/效率/創新",
+      "loading": "正在準備"
+    },
+    {
+      "locale": "zh-hk",
+      "width": 1280,
+      "height": 720,
+      "lang": "zh-HK",
+      "scrollWidth": 1280,
+      "sections": [
+        {
+          "id": "hero",
+          "height": 720,
+          "contentInside": true
+        },
+        {
+          "id": "culture",
+          "height": 720,
+          "contentInside": true
+        },
+        {
+          "id": "about",
+          "height": 720,
+          "contentInside": true
+        },
+        {
+          "id": "products",
+          "height": 720,
+          "contentInside": true
+        },
+        {
+          "id": "services",
+          "height": 720,
+          "contentInside": true
+        },
+        {
+          "id": "contact",
+          "height": 720,
+          "contentInside": true
+        }
+      ],
+      "missingImages": [],
+      "values": "利他/專業/效率/創新",
+      "loading": "正在準備"
+    },
+    {
+      "locale": "zh-hk",
+      "width": 768,
+      "height": 1024,
+      "lang": "zh-HK",
+      "scrollWidth": 768,
+      "sections": [
+        {
+          "id": "hero",
+          "height": 1024,
+          "contentInside": true
+        },
+        {
+          "id": "culture",
+          "height": 1040,
+          "contentInside": true
+        },
+        {
+          "id": "about",
+          "height": 1029,
+          "contentInside": true
+        },
+        {
+          "id": "products",
+          "height": 1504,
+          "contentInside": true
+        },
+        {
+          "id": "services",
+          "height": 1024,
+          "contentInside": true
+        },
+        {
+          "id": "contact",
+          "height": 1024,
+          "contentInside": true
+        }
+      ],
+      "missingImages": [],
+      "values": "利他/專業/效率/創新",
+      "loading": "正在準備"
+    },
+    {
+      "locale": "zh-hk",
+      "width": 390,
+      "height": 844,
+      "lang": "zh-HK",
+      "scrollWidth": 390,
+      "sections": [
+        {
+          "id": "hero",
+          "height": 844,
+          "contentInside": true
+        },
+        {
+          "id": "culture",
+          "height": 1091,
+          "contentInside": true
+        },
+        {
+          "id": "about",
+          "height": 844,
+          "contentInside": true
+        },
+        {
+          "id": "products",
+          "height": 1147,
+          "contentInside": true
+        },
+        {
+          "id": "services",
+          "height": 913,
+          "contentInside": true
+        },
+        {
+          "id": "contact",
+          "height": 844,
+          "contentInside": true
+        }
+      ],
+      "missingImages": [],
+      "values": "利他/專業/效率/創新",
+      "loading": "正在準備"
+    },
+    {
+      "locale": "zh-hk",
+      "width": 320,
+      "height": 740,
+      "lang": "zh-HK",
+      "scrollWidth": 320,
+      "sections": [
+        {
+          "id": "hero",
+          "height": 740,
+          "contentInside": true
+        },
+        {
+          "id": "culture",
+          "height": 1119,
+          "contentInside": true
+        },
+        {
+          "id": "about",
+          "height": 829,
+          "contentInside": true
+        },
+        {
+          "id": "products",
+          "height": 1149,
+          "contentInside": true
+        },
+        {
+          "id": "services",
+          "height": 1002,
+          "contentInside": true
+        },
+        {
+          "id": "contact",
+          "height": 740,
+          "contentInside": true
+        }
+      ],
+      "missingImages": [],
+      "values": "利他/專業/效率/創新",
+      "loading": "正在準備"
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "height": 900,
+      "lang": "en",
+      "scrollWidth": 1440,
+      "sections": [
+        {
+          "id": "hero",
+          "height": 900,
+          "contentInside": true
+        },
+        {
+          "id": "culture",
+          "height": 900,
+          "contentInside": true
+        },
+        {
+          "id": "about",
+          "height": 900,
+          "contentInside": true
+        },
+        {
+          "id": "products",
+          "height": 900,
+          "contentInside": true
+        },
+        {
+          "id": "services",
+          "height": 900,
+          "contentInside": true
+        },
+        {
+          "id": "contact",
+          "height": 900,
+          "contentInside": true
+        }
+      ],
+      "missingImages": [],
+      "values": "Altruism/Expertise/Efficiency/Innovation",
+      "loading": "Getting ready"
+    },
+    {
+      "locale": "en",
+      "width": 1920,
+      "height": 1080,
+      "lang": "en",
+      "scrollWidth": 1920,
+      "sections": [
+        {
+          "id": "hero",
+          "height": 1080,
+          "contentInside": true
+        },
+        {
+          "id": "culture",
+          "height": 1080,
+          "contentInside": true
+        },
+        {
+          "id": "about",
+          "height": 1080,
+          "contentInside": true
+        },
+        {
+          "id": "products",
+          "height": 1080,
+          "contentInside": true
+        },
+        {
+          "id": "services",
+          "height": 1080,
+          "contentInside": true
+        },
+        {
+          "id": "contact",
+          "height": 1080,
+          "contentInside": true
+        }
+      ],
+      "missingImages": [],
+      "values": "Altruism/Expertise/Efficiency/Innovation",
+      "loading": "Getting ready"
+    },
+    {
+      "locale": "en",
+      "width": 1280,
+      "height": 720,
+      "lang": "en",
+      "scrollWidth": 1280,
+      "sections": [
+        {
+          "id": "hero",
+          "height": 720,
+          "contentInside": true
+        },
+        {
+          "id": "culture",
+          "height": 720,
+          "contentInside": true
+        },
+        {
+          "id": "about",
+          "height": 720,
+          "contentInside": true
+        },
+        {
+          "id": "products",
+          "height": 720,
+          "contentInside": true
+        },
+        {
+          "id": "services",
+          "height": 720,
+          "contentInside": true
+        },
+        {
+          "id": "contact",
+          "height": 720,
+          "contentInside": true
+        }
+      ],
+      "missingImages": [],
+      "values": "Altruism/Expertise/Efficiency/Innovation",
+      "loading": "Getting ready"
+    },
+    {
+      "locale": "en",
+      "width": 768,
+      "height": 1024,
+      "lang": "en",
+      "scrollWidth": 768,
+      "sections": [
+        {
+          "id": "hero",
+          "height": 1024,
+          "contentInside": true
+        },
+        {
+          "id": "culture",
+          "height": 1264,
+          "contentInside": true
+        },
+        {
+          "id": "about",
+          "height": 1058,
+          "contentInside": true
+        },
+        {
+          "id": "products",
+          "height": 1504,
+          "contentInside": true
+        },
+        {
+          "id": "services",
+          "height": 1024,
+          "contentInside": true
+        },
+        {
+          "id": "contact",
+          "height": 1024,
+          "contentInside": true
+        }
+      ],
+      "missingImages": [],
+      "values": "Altruism/Expertise/Efficiency/Innovation",
+      "loading": "Getting ready"
+    },
+    {
+      "locale": "en",
+      "width": 390,
+      "height": 844,
+      "lang": "en",
+      "scrollWidth": 390,
+      "sections": [
+        {
+          "id": "hero",
+          "height": 844,
+          "contentInside": true
+        },
+        {
+          "id": "culture",
+          "height": 1366,
+          "contentInside": true
+        },
+        {
+          "id": "about",
+          "height": 937,
+          "contentInside": true
+        },
+        {
+          "id": "products",
+          "height": 1248,
+          "contentInside": true
+        },
+        {
+          "id": "services",
+          "height": 1149,
+          "contentInside": true
+        },
+        {
+          "id": "contact",
+          "height": 844,
+          "contentInside": true
+        }
+      ],
+      "missingImages": [],
+      "values": "Altruism/Expertise/Efficiency/Innovation",
+      "loading": "Getting ready"
+    },
+    {
+      "locale": "en",
+      "width": 320,
+      "height": 740,
+      "lang": "en",
+      "scrollWidth": 320,
+      "sections": [
+        {
+          "id": "hero",
+          "height": 888,
+          "contentInside": true
+        },
+        {
+          "id": "culture",
+          "height": 1424,
+          "contentInside": true
+        },
+        {
+          "id": "about",
+          "height": 965,
+          "contentInside": true
+        },
+        {
+          "id": "products",
+          "height": 1320,
+          "contentInside": true
+        },
+        {
+          "id": "services",
+          "height": 1211,
+          "contentInside": true
+        },
+        {
+          "id": "contact",
+          "height": 740,
+          "contentInside": true
+        }
+      ],
+      "missingImages": [],
+      "values": "Altruism/Expertise/Efficiency/Innovation",
+      "loading": "Getting ready"
     }
   ],
   "accessibility": [
     {
-      "label": "desktop",
+      "label": "zh-cn-desktop",
       "violations": []
     },
     {
-      "label": "mobile",
+      "label": "zh-cn-mobile",
       "violations": []
     },
     {
-      "label": "loading",
+      "label": "zh-cn-language-menu",
+      "violations": []
+    },
+    {
+      "label": "zh-hk-desktop",
+      "violations": []
+    },
+    {
+      "label": "zh-hk-mobile",
+      "violations": []
+    },
+    {
+      "label": "zh-hk-language-menu",
+      "violations": []
+    },
+    {
+      "label": "en-desktop",
+      "violations": []
+    },
+    {
+      "label": "en-mobile",
+      "violations": []
+    },
+    {
+      "label": "en-language-menu",
+      "violations": []
+    },
+    {
+      "label": "zh-cn-loading",
+      "violations": []
+    },
+    {
+      "label": "zh-hk-loading",
+      "violations": []
+    },
+    {
+      "label": "en-loading",
       "violations": []
     }
   ],
   "interactions": {
-    "skipLinkFocus": true,
-    "mobileMenuOpen": true,
-    "escapeClosesMenu": true,
-    "productLinkHash": "#products",
-    "menuClosesAfterNavigation": true,
-    "reducedMotion": {
-      "animation": "none",
-      "scroll": "auto",
-      "snap": "none"
+    "zh-cn": {
+      "skipLinkFocus": true,
+      "mobileMenuOpen": true,
+      "escapeClosesMenu": true,
+      "productLinkHash": true,
+      "menuClosesAfterNavigation": true,
+      "currentLanguage": true,
+      "languageSwitch": true,
+      "retainedHash": true,
+      "reloadKeepsLanguage": true,
+      "backRestoresLanguage": true,
+      "escapeClosesLanguage": true,
+      "outsideClosesLanguage": true,
+      "oneMenuOpen": true
     },
-    "noJsVisibleHeadings": 6
+    "zh-hk": {
+      "skipLinkFocus": true,
+      "mobileMenuOpen": true,
+      "escapeClosesMenu": true,
+      "productLinkHash": true,
+      "menuClosesAfterNavigation": true,
+      "currentLanguage": true,
+      "languageSwitch": true,
+      "retainedHash": true,
+      "reloadKeepsLanguage": true,
+      "backRestoresLanguage": true,
+      "escapeClosesLanguage": true,
+      "outsideClosesLanguage": true,
+      "oneMenuOpen": true
+    },
+    "en": {
+      "skipLinkFocus": true,
+      "mobileMenuOpen": true,
+      "escapeClosesMenu": true,
+      "productLinkHash": true,
+      "menuClosesAfterNavigation": true,
+      "currentLanguage": true,
+      "languageSwitch": true,
+      "retainedHash": true,
+      "reloadKeepsLanguage": true,
+      "backRestoresLanguage": true,
+      "escapeClosesLanguage": true,
+      "outsideClosesLanguage": true,
+      "oneMenuOpen": true
+    }
   },
   "loading": {
-    "noJsContentVisible": true,
-    "noJsLoaderHidden": true,
-    "pending": {
-      "inert": true,
-      "busy": "true",
-      "status": "status",
-      "label": "正在准备"
+    "zh-cn": {
+      "pending": {
+        "inert": true,
+        "busy": "true",
+        "label": "正在准备"
+      },
+      "afterReady": {
+        "inert": false,
+        "busy": "false",
+        "contentVisible": "visible"
+      }
     },
-    "reducedMotionAnimation": "none",
-    "afterReady": {
-      "inert": false,
-      "busy": "false",
-      "contentVisible": "visible"
+    "zh-hk": {
+      "pending": {
+        "inert": true,
+        "busy": "true",
+        "label": "正在準備"
+      },
+      "afterReady": {
+        "inert": false,
+        "busy": "false",
+        "contentVisible": "visible"
+      }
+    },
+    "en": {
+      "pending": {
+        "inert": true,
+        "busy": "true",
+        "label": "Getting ready"
+      },
+      "afterReady": {
+        "inert": false,
+        "busy": "false",
+        "contentVisible": "visible"
+      }
     },
     "timeout": {
-      "elapsedMs": 4538,
+      "elapsedMs": 4784,
       "inert": false,
       "contentVisible": "visible"
-    },
-    "logoErrorStillEnters": true
+    }
   },
   "errors": [],
   "failures": []

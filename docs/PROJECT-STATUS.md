@@ -1,117 +1,120 @@
 # Helmax 官网：项目进度与接续说明
 
-更新日期：2026-11-03。当前阶段：需求梳理与可交互视觉概念稿；已配置将最新概念稿作为 GitHub Pages 首页，尚未迁入正式 Astro 三语首页。
+更新日期：2026-11-03。用户已明确确认：**现在这版就是正式网站**。原概念稿已作为官网首页维护，并补齐简体中文、香港繁体中文和英文。
 
-## GitHub Pages 发布入口
+## 当前正式网站
 
-用户已确认 Pages 首页直接展示最新 Helmax 交互概念稿。`.github/workflows/pages.yml` 将其与所需的三张展示图片单独打包、验证并发布，默认地址为 <https://jwuang.github.io/corporate-portal/>。首次启用和工作流运行说明见 [GitHub Pages 部署指南](GITHUB-PAGES.md)。部署成功以 GitHub Actions 的 `deploy` 结果为准。
+默认地址：<https://jwuang.github.io/corporate-portal/>，根路径展示简体。独立语言地址：
 
-Pages 页面继续标注概念稿并禁止搜索收录；正式三语 Astro 主站的发布审核要求保持原状。
+- [简体中文](https://jwuang.github.io/corporate-portal/zh-cn/)
+- [繁體中文](https://jwuang.github.io/corporate-portal/zh-hk/)
+- [English](https://jwuang.github.io/corporate-portal/en/)
+
+首页源文件沿用历史路径 [helmax-exhibition-prototype.html](design/helmax-exhibition-prototype.html)。`scripts/build-pages.ts` 从同一 HTML 模板与内嵌 `home-translations` 字典生成完整三语静态页面，`.github/workflows/pages.yml` 验证并发布到 GitHub Pages。页面标题与页脚已改为正式官网表述。不要再把该版本当作等待迁移才能使用的概念稿。
+
+仓库 `src/` 仍是之前的 Astro 样稿，尚未套用当前 Helmax 官网设计。当前线上官网以 Pages 发布内容为准。网站继续沿用既有的 `noindex, nofollow` 与禁止抓取设置；后续收录策略可单独调整。
 
 ## 从这里继续
 
-1. 阅读本文件，了解已经确定的要求。
-2. 用浏览器打开 [最新概念稿](design/helmax-exhibition-prototype.html)。保留同目录的 `assets/`，即可直接通过本地文件体验，无需启动 Astro。
-3. 如需快速看图，打开 [首屏](design/previews/helmax-hero-desktop.png)、[企业文化](design/previews/helmax-culture-desktop.png)、[加载页](design/previews/helmax-loading-desktop.png)。
-4. 需要回顾讨论时，阅读 [项目聊天记录](CHAT-LOG.md)；需要布局与文案依据时，阅读 [首页设计说明](HOMEPAGE-WIREFRAME.md)。
-
-继续对话时，可以直接使用：
-
-> 请先阅读 AGENTS.md、docs/PROJECT-STATUS.md 和 docs/CHAT-LOG.md，在现有 Helmax 设计进度上继续。保留已经确定的品牌、导航、产品统一展示、全屏章节和四项文化关键词。先查看最新概念稿，再根据我本轮的反馈推进，不要从头重复需求访谈。
+1. 阅读本文件，保留已经确定的要求。
+2. 查看线上三语官网，或直接用浏览器打开首页源文件；保留同目录的 `assets/`。本地语言预览通过 `?lang=zh-cn`、`?lang=zh-hk`、`?lang=en` 切换，需要 JavaScript。
+3. 查阅 [项目聊天记录](CHAT-LOG.md)、[首页设计说明](HOMEPAGE-WIREFRAME.md) 和 [Pages 部署指南](GITHUB-PAGES.md)。
+4. 在当前官网上继续完善内容和交互，不重新开始需求访谈。
 
 ## 已确认的要求
 
 | 项目 | 用户明确的要求 |
 | --- | --- |
-| 网站用途 | 企业介绍／展示网站，从需求和设计出发逐步建设 |
-| 服务对象 | 制造类企业；具体访问者岗位尚未进一步细化 |
+| 网站用途 | 企业介绍／展示网站；用户已确认当前版本为正式网站 |
+| 服务对象 | 制造类企业 |
 | 品牌 | 统一使用 **Helmax** 名称和企业 PPT 中的 Logo |
 | 展示范围 | 完整覆盖电子元器件，以及设备与工具 |
-| 产品组织 | 导航统一为“产品”；元器件与设备工具一起展示，最多用小标题或副标题分类；共用卡片与视觉规则 |
-| 导航 | **首页／关于企业／产品／联系我们**；保留语言入口 |
+| 产品组织 | 导航统一为“产品”；所有产品一起展示，最多用小标题或副标题分类；共用卡片与视觉规则 |
+| 导航 | **首页／关于企业／产品／联系我们**，提供简体／繁体／英文切换 |
 | 首页体验 | 每个板块以整屏呈现，形成一段一段的展览体验 |
 | 文化位置 | 文化／理念靠前；首屏具有设计感，并与理念结合 |
 | 文化关键词 | **利他、专业、效率、创新** |
 | 整体气质 | **科技感** |
 | 加载体验 | 简洁的等待页面 |
 
-产品和企业资料来自 [Helmax Company Profile v2](HelmaxCompanyProfile+v2.pptx)，共 14 页。PPT 已读取全部文字与内嵌图片，未用 PowerPoint 完整渲染原始排版。Helmax、Zeension、Wayland 的法律或股权关系仍应按实际资料说明；用户要求的统一品牌展示不等于对法律关系作出判断。
+资料来自 [Helmax Company Profile v2](HelmaxCompanyProfile+v2.pptx)，共 14 页。PPT 已读取全部文字与内嵌图片，未用 PowerPoint 完整渲染原始排版。Helmax、Zeension、Wayland 的法律或股权关系仍应按实际资料说明。
 
-## 当前设计
+## 当前首页
 
 首页保持六章：
 
-1. **品牌与理念**：深蓝背景、冰蓝／青色点缀、网格与连接节点，结合主营说明和四项文化关键词。
-2. **企业文化**：利他、专业、效率、创新，辅以使命和愿景草案。
+1. **品牌与理念**：深蓝背景、冰蓝／青色点缀、网格与连接节点，结合主营说明和四项文化关键词。简体标题为“以专业，成就彼此。”。
+2. **企业文化**：利他、专业、效率、创新，辅以使命和愿景。
 3. **关于 Helmax**：企业简介、产品范围与合作支持。
-4. **产品**：元器件与设备工具统一陈列，仅用小标题分类。
+4. **产品**：元器件与设备工具统一陈列，用小标题分类。
 5. **服务与能力**：采购优化、现货与库存支持、元器件质量与交付流程。
-6. **联系与合作**：简短引导，真实联系资料待补充，页脚融入收尾。
+6. **联系与合作**：简短引导、联系资料状态与正式版权页脚。
 
-首屏文案当前草案为 **“以专业，成就彼此。”**。文化关键词已由用户明确；口号、解释性段落、使命与愿景的完整文字仍为可调整草案，不能当作已获确认的最终发布文案。
+大屏以 `min-height: 100svh` 控制一章一屏；手机和平板内容较多时自然延展。英文标题、文化卡片、使命愿景及较矮桌面下的产品图片比例已做适配。减少动态效果时关闭动效、平滑滚动与停靠。
 
-大屏以 `min-height: 100svh` 控制一章一屏，使用原生滚动和轻量临近停靠。手机和平板以整屏为起点，内容较多时自然延展，保证可读性。减少动态效果时关闭动效、平滑滚动与停靠。
+加载页仅有 **Helmax Logo、细进度线、对应语言的“正在准备”**，按真实 Logo／字体准备状态显示；快速准备直接进入，4.5 秒超时后释放正文。Logo 出错或关闭 JavaScript 时也可阅读内容。
 
-加载页只有 **Helmax Logo、细进度线、“正在准备”** 三个元素。按首屏 Logo／字体的真实准备状态显示，完成后立即进入；快速准备时直接显示首页；4.5 秒超时后释放正文。关闭 JavaScript 或 Logo 出错时也能进入内容，不依赖虚假的百分比。
+三语覆盖全部六章、导航、菜单、加载状态、图片替代文字、章节提示和元数据。语言菜单标明当前语言，支持键盘、Escape 与点击外部关闭；与手机菜单互斥。发布版本可无脚本切换三语；启用脚本时保留 URL 中的章节锚点，刷新与返回均保留语言。
 
 ## 文件导航
 
 | 文件／目录 | 用途 |
 | --- | --- |
-| [CHAT-LOG.md](CHAT-LOG.md) | 用户需求原文与助手阶段答复，保留讨论顺序 |
-| [HOMEPAGE-REVIEW.md](HOMEPAGE-REVIEW.md) | 原官网评估、PPT 资料梳理、现阶段设计约束 |
-| [HOMEPAGE-WIREFRAME.md](HOMEPAGE-WIREFRAME.md) | 当前章节构图、文化文案、滚动与加载说明 |
-| [企业介绍 PPT](HelmaxCompanyProfile+v2.pptx) | 企业提供的原始资料 |
-| [交互概念稿](design/helmax-exhibition-prototype.html) | 最新设计的主要参考文件 |
-| [素材目录](design/assets/) | 从 PPT 提取的 Logo、焊接设备和水泵示例图片 |
-| [最新预览](design/previews/) | 桌面与手机、首屏与文化、产品和加载状态截图 |
-| [初始官网截图](design/baseline/) | 评估时的原官网桌面与手机画面 |
-| [早期桌面线框](design/helmax-home-desktop-wireframe.svg)／[手机线框](design/helmax-home-mobile-wireframe.svg) | 早期布局记录，已被全屏概念稿替代 |
-| [原型检查脚本](../scripts/check-design-prototype.mjs) | 可跨设备运行的 Chromium 原型检查 |
-| [原型检查结果](design/validation-results.json) | 最近一次原型检查的原始记录 |
-| [本地 UI/UX 技能](../.agents/skills/ui-ux-pro-max/SKILL.md) | 后续设计继续使用的技能；附上游来源和许可证 |
+| [CHAT-LOG.md](CHAT-LOG.md) | 用户需求原文与阶段答复，保留讨论顺序 |
+| [GITHUB-PAGES.md](GITHUB-PAGES.md) | 正式官网的三语地址、构建、发布及回退 |
+| [HOMEPAGE-REVIEW.md](HOMEPAGE-REVIEW.md) | 原官网评估、PPT 资料梳理与历史设计约束 |
+| [HOMEPAGE-WIREFRAME.md](HOMEPAGE-WIREFRAME.md) | 章节构图、文化文案、滚动与加载设计依据 |
+| [首页源文件](design/helmax-exhibition-prototype.html) | 正式官网模板、三语字典与本地可交互预览 |
+| [素材目录](design/assets/) | PPT 提取的 Logo、焊接设备和水泵示例图片 |
+| [预览截图](design/previews/) | 三语桌面与手机首屏等截图 |
+| [官网检查脚本](../scripts/check-design-prototype.mjs) | 三语各六种尺寸、交互、加载与无障碍验证 |
+| [检查结果](design/validation-results.json) | 本次 Pages 官网浏览器检查记录 |
+| [本地 UI/UX 技能](../.agents/skills/ui-ux-pro-max/SKILL.md) | 后续设计继续使用的技能及上游许可证 |
 
-这些资料均以仓库内相对路径组织；继续开发不依赖之前会话的 `/tmp` 文件。
+三语首屏截图：
 
-## 实现范围与验证
+| 语言 | 桌面 | 手机 |
+| --- | --- | --- |
+| 简体 | [1440×900](design/previews/helmax-hero-desktop.png) | [390×844](design/previews/helmax-hero-mobile.png) |
+| 繁體 | [1440×900](design/previews/helmax-zh-hk-hero-desktop.png) | [390×844](design/previews/helmax-zh-hk-hero-mobile.png) |
+| English | [1440×900](design/previews/helmax-en-hero-desktop.png) | [390×844](design/previews/helmax-en-hero-mobile.png) |
 
-正式项目仍为 Astro 静态站，支持简体中文、香港繁体中文、英文；没有数据库、后台或登录。本阶段的工作集中在 `docs/design/` 的简体交互概念稿，`src/` 页面、品牌配置与翻译字典尚未套用新设计。
+## 实现与验证
 
-原型已经检查：
+当前官网是三语静态网站，没有数据库、后台或登录。Pages 输出仅含默认首页、三个语言目录、三张展示图片和 `robots.txt`。
 
-- 1440×900、1920×1080、1280×720、768×1024、390×844、320×740 六种尺寸；未记录横向溢出、缺失图片或页面脚本错误。
-- 三种桌面尺寸的六个章节分别为 900、1080、720px 高；手机、平板的较长章节自然延展。
-- 跳过导航、手机菜单、Escape 关闭、产品锚点跳转、菜单收起。
-- 加载完成、等待超时、Logo 出错、关闭 JavaScript、减少动态效果。
-- 桌面、手机和加载状态的 axe 自动检查，所选 WCAG 2 A/AA 与 2.1 A/AA 规则未发现违规。
+本次官网浏览器检查覆盖：
 
-本轮未覆盖 Firefox、WebKit 和真实移动设备，也未运行完整 Astro `pnpm verify`；不能把概念稿检查等同于正式主站验收。
+- 三语各 1440×900、1920×1080、1280×720、768×1024、390×844、320×740 六种尺寸，共 18 组；检查横向溢出、章节高度、内容边界、导航重叠、图片及脚本错误。
+- 三语菜单、当前语言、章节锚点、刷新、返回、Escape、点击外部、手机菜单互斥。
+- 各语言的加载等待与完成、减少动态效果，以及超时释放、Logo 错误、无 JavaScript 阅读和语言切换。
+- 三语桌面、手机、展开的语言菜单和加载页的 axe 检查，规则为 WCAG 2 A/AA 与 2.1 A/AA。
 
-运行原型检查：
+官网上述 18 组视口、全部交互与加载检查通过，未记录脚本错误、缺失图片、横向溢出或所选 axe 规则违规；本地 HTML 的三语预览也已完成同范围检查。
+
+`pnpm check`、`pnpm lint`、7 项单元测试和 Astro 预览构建通过。已运行完整 `pnpm verify`，其中旧 Astro 样稿的浏览器测试未全通过：Chromium 检出原有英文页 320px 溢出，Firefox 部分交互超时，WebKit 缺少系统动态库。上述测试对象是 `dist/` 中的旧样稿；当前官网在 `dist-pages/`，由 `pnpm test:pages` 单独验证。当前官网浏览器检查范围为 Chromium。
+
+使用 Node 24.19.0（24.x）、pnpm 11.25.0：
 
 ```sh
 pnpm install --frozen-lockfile
+pnpm check
+pnpm lint
+pnpm test
+pnpm build:pages
 pnpm exec playwright install chromium
-node scripts/check-design-prototype.mjs
+pnpm test:pages
 ```
 
-可用 `CHROMIUM_PATH` 指定已有 Chromium。检查结果及新截图输出到已忽略的 `reports/design-prototype/`，不会自动覆盖仓库内已保存的设计截图。项目要求 Node 24.19.0（24.x）、pnpm 11.25.0。
+`pnpm test:pages` 通过临时本地 HTTP 服务检查 `/corporate-portal/` 下的发布产物。直接验证本地源文件可运行 `node scripts/check-design-prototype.mjs`。结果及截图写入已忽略的 `reports/design-prototype/`，不会自动覆盖仓库中的截图。
 
-## 尚需准备的内容
+用户询问 WSL 安装 WebKit 依赖后，已确认当前 Arch WSL2 无 `apt-get`，且 `sudo` 需要密码。用户已手动安装并启动 Docker；当前会话无 Docker 套接字权限，已请用户手动运行 `sudo bash scripts/test-pages-webkit-container.sh`，在官方 Ubuntu 容器中检查当前官网，结果待反馈。可通过 `pnpm test:pages --browser=webkit` 指定浏览器；操作见 [验证与验收](VALIDATION.md#wsl-中的-webkit)。
 
-- 元器件正式分类、代表产品和图片；当前两个元器件卡片明确标注为占位。
+## 仍需补充的资料
+
+- 元器件正式分类、代表产品和图片；目前两个元器件卡片保留待补资料提示。
 - 设备工具的正式产品清单、名称、型号、规格、用途与较清晰图片。
-- 公司简介、相关企业关系、可公开的客户／品牌关系，以及真实电话、邮箱、地址等资料。
-- 首屏口号、文化解释、使命与愿景的最终表达，以及繁体／英文译文。
-- PPT 第 9 页供应商等级口径、第 10 页“6,00+ vendors”、第 12 页 Flexcon RMA Team、经验年限及服务承诺的适用范围。
+- 企业关系及可公开的合作／品牌关系，真实电话、邮箱和地址。
+- PPT 第 9 页供应商等级口径、第 10 页“6,00+ vendors”、第 12 页 Flexcon RMA Team、经验年限与服务承诺的适用范围。
 
-不把品牌 Logo 解释为已取得授权代理资格，不虚构客户、资质、业绩、库存、产品参数或联系方式。元器件服务流程的适用范围应清楚，不能直接推定为所有设备的服务承诺。
-
-## 接下来的推进顺序
-
-1. 根据用户对最新科技风、首屏与文化屏的反馈继续打磨；保持已确认的导航、品牌与统一产品展示方式。
-2. 整理正式产品与企业资料，收敛首页文案，完成三语内容。
-3. 在现有 Astro 组件、布局、配置与翻译体系中实现已确定的设计；沿用现有内容与发布约束。
-4. 运行相应检查、三语与各尺寸截图、浏览器与无障碍验证；正式发布另按原项目流程执行。
-
-上一阶段已将设计进度和对话保存到 `main` 并推送 `origin`。本阶段新增独立概念稿的 GitHub Pages 发布配置，正式三语主站仍待后续实现与审核。
+不虚构产品参数、联系方式、客户、资质、库存或业绩；不把品牌 Logo 解释为已获授权代理资格。元器件流程的适用范围不能直接扩大为所有设备的服务承诺。

@@ -1,28 +1,28 @@
-# Corporate Portal 企业门户
+# Helmax 企业官网
 
-简体中文、香港繁体中文、英文的响应式企业官网。Astro 静态输出、TypeScript、Tailwind CSS、Markdown 内容集合；无数据库、登录或后台。支持 PC、手机、平板及无需 JavaScript 的核心浏览。
+简体中文、香港繁体中文、英文的响应式企业官网。当前官网通过 GitHub Pages 发布静态页面，无数据库、登录或后台，支持 PC、手机、平板及无需 JavaScript 的核心浏览与语言切换。
 
-**Astro 主站当前仍是可运行样稿；Helmax 设计已推进到独立交互概念稿阶段。** 服务为明确标注的演示内容；案例、新闻模板为草稿，不在导航或 sitemap 中出现。未设置任何虚构电话、邮箱、客户、资质或业绩。正式构建要求实际域名及内容审核完成。
+**用户已确认当前全屏展览式版本就是正式网站。** 首页源文件沿用 `docs/design/helmax-exhibition-prototype.html` 的历史路径，由 `scripts/build-pages.ts` 生成三语页面。仓库另保留早期 Astro／TypeScript／Tailwind CSS／Markdown 样稿，位于 `src/`，与当前官网分别构建。
 
-## 跨设备继续 Helmax 官网设计
+## 跨设备继续维护 Helmax 官网
 
 先读 [项目进度与接续说明](docs/PROJECT-STATUS.md)，再按需要查看 [项目聊天记录](docs/CHAT-LOG.md)。这两个文件记录已确认的需求、当前设计、验证情况和下一步。
 
-- [最新可滚动概念稿](docs/design/helmax-exhibition-prototype.html)：克隆仓库后用浏览器打开本地 HTML 文件；旁边的 `assets/` 目录需保留。
+- [官网首页源文件与本地预览](docs/design/helmax-exhibition-prototype.html)：克隆仓库后用浏览器打开 HTML 文件；旁边的 `assets/` 目录需保留，语言预览需要 JavaScript。
 - [首屏预览](docs/design/previews/helmax-hero-desktop.png) · [企业文化](docs/design/previews/helmax-culture-desktop.png) · [加载页](docs/design/previews/helmax-loading-desktop.png)。
 - [首页设计说明](docs/HOMEPAGE-WIREFRAME.md) · [现有官网评估与企业资料梳理](docs/HOMEPAGE-REVIEW.md)。
 
-概念稿尚未迁入 `src/` 的正式三语页面。后续设计保留 Helmax 统一品牌、统一“产品”展示、全屏章节、前置企业文化，以及“利他、专业、效率、创新”四个关键词。
+后续维护保留 Helmax 统一品牌、统一“产品”展示、全屏章节、前置企业文化，以及“利他、专业、效率、创新”四个关键词。
 
-## GitHub Pages 展示
+## 正式网站与 GitHub Pages 发布
 
-GitHub Pages 首页直接展示上述**最新 Helmax 全屏交互概念稿**，保留概念稿说明及 `noindex`。部署地址为 <https://jwuang.github.io/corporate-portal/>。
+GitHub Pages 发布上述 **Helmax 官网**，已补齐简体、香港繁体和英文，标题与页脚使用正式官网表述；搜索收录策略沿用既有 `noindex`。部署地址为 <https://jwuang.github.io/corporate-portal/>，根路径默认简体；独立语言地址为 [简体](https://jwuang.github.io/corporate-portal/zh-cn/)、[繁體](https://jwuang.github.io/corporate-portal/zh-hk/)、[English](https://jwuang.github.io/corporate-portal/en/)。
 
-首次启用：打开仓库 **Settings → Pages → Build and deployment → Source**，选择 **GitHub Actions**。推送相关文件到 `main` 后，`Deploy Helmax concept to GitHub Pages` 工作流自动验证并发布；也可在 **Actions** 中手动运行。
+首次启用：打开仓库 **Settings → Pages → Build and deployment → Source**，选择 **GitHub Actions**。推送相关文件到 `main` 后，`Deploy Helmax website to GitHub Pages` 工作流自动验证并发布；也可在 **Actions** 中手动运行。
 
-`pnpm build:pages` 将 HTML 和三张展示图片打包到 `dist-pages/`，`pnpm test:pages` 检查打包后的页面。操作与回退说明见 [GitHub Pages 部署指南](docs/GITHUB-PAGES.md)。
+`pnpm build:pages` 从共享模板和翻译字典生成三语静态页面，并将三张展示图片打包到 `dist-pages/`；关闭 JavaScript 也可阅读和切换语言。`pnpm test:pages` 检查打包后的三语页面。操作与回退说明见 [GitHub Pages 部署指南](docs/GITHUB-PAGES.md)。
 
-## 开始开发
+## Astro 样稿开发
 
 要求 Node 24.19.0+（24.x）、pnpm 11.25.0。推荐 `npm install -g pnpm@11.25.0`，然后：
 
@@ -43,8 +43,8 @@ GitHub **Code → Codespaces → Create codespace on main** 可按 `.devcontaine
 | `pnpm lint` | ESLint |
 | `pnpm test` | 草稿隔离、内容一致性、链接安全测试 |
 | `pnpm build:preview` | 预览静态产物，明确标识样稿且 noindex |
-| `pnpm build:pages` | 打包 GitHub Pages 首页使用的最新 Helmax 概念稿 |
-| `pnpm test:pages` | 检查打包概念稿的六种尺寸、交互、加载和无障碍 |
+| `pnpm build:pages` | 构建 GitHub Pages 使用的正式 Helmax 三语官网 |
+| `pnpm test:pages` | 检查三语官网各六种尺寸、语言切换、交互、加载和无障碍 |
 | `pnpm preview` | 检查构建产物 |
 | `pnpm test:e2e` | Chromium / Firefox / WebKit 浏览器测试 |
 | `pnpm audit:security` | 高危及严重依赖漏洞门禁 |
@@ -53,7 +53,9 @@ GitHub **Code → Codespaces → Create codespace on main** 可按 `.devcontaine
 
 首次浏览器测试先运行 `pnpm exec playwright install --with-deps chromium firefox webkit`。仅使用系统 Chromium 时：`CHROMIUM_PATH=/usr/bin/chromium pnpm test:e2e --project=chromium`。
 
-## 内容与正式构建
+## 官网内容与 Astro 样稿构建
+
+当前官网内容维护在 [首页源文件](docs/design/helmax-exhibition-prototype.html) 的 `home-translations` 三语字典中，样式与交互共用一份模板，运行 `pnpm build:pages` 后发布。以下配置用于独立的 Astro 样稿：
 
 - 品牌名称、联系方式、企业全称：`src/config/site.ts`。
 - 首页、关于、隐私及 UI 三语文案：`src/lib/i18n.ts`。
@@ -69,7 +71,7 @@ pnpm build
 
 所有正式服务内容应设 `draft: false`、`previewOnly: false`；预览样例自动从正式构建中剔除。没有发布内容的栏目从导航隐藏；其列表页保留为 noindex 空状态，供缺少译文时回退。
 
-构建生成 `dist/`、sitemap、robots.txt、build-info.json，并检查所有 HTML 内部链接与资源。`Website checks` CI 验证并保留三语主站预览产物；独立的 Pages 工作流只发布 `dist-pages/` 中的 Helmax 概念稿。正式三语主站的生产输出仍为 `dist/`，不需在服务器安装 Node。
+Astro 构建生成 `dist/`、sitemap、robots.txt、build-info.json，并检查所有 HTML 内部链接与资源。`Website checks` CI 验证并保留旧样稿预览产物；Pages 工作流发布 `dist-pages/` 中的正式 Helmax 官网。
 
 ## 手动运维与验证
 
