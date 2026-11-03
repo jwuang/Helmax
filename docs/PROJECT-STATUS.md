@@ -92,9 +92,9 @@
 - 各语言的加载等待与完成、减少动态效果，以及超时释放、Logo 错误、无 JavaScript 阅读和语言切换。
 - 三语桌面、手机、展开的语言菜单和加载页的 axe 检查，规则为 WCAG 2 A/AA 与 2.1 A/AA。
 
-官网上述 18 组视口、全部交互与加载检查通过，未记录脚本错误、缺失图片、横向溢出或所选 axe 规则违规；本地 HTML 的三语预览也已完成同范围检查。
+官网上述 18 组视口、全部交互与加载检查在 Chromium 中通过，未记录脚本错误、缺失图片、横向溢出或所选 axe 规则违规；本地 HTML 的三语预览也已完成同范围检查。用户另在官方 Playwright Docker 容器中手动运行官网 WebKit 检查，并核对 JSON 确认通过：`browser` 为 `webkit`，`viewportChecks` 为 18，`failures`、`errors` 及全部 `violations` 均为空。
 
-`pnpm check`、`pnpm lint`、7 项单元测试和 Astro 预览构建通过。已运行完整 `pnpm verify`，其中旧 Astro 样稿的浏览器测试未全通过：Chromium 检出原有英文页 320px 溢出，Firefox 部分交互超时，WebKit 缺少系统动态库。上述测试对象是 `dist/` 中的旧样稿；当前官网在 `dist-pages/`，由 `pnpm test:pages` 单独验证。当前官网浏览器检查范围为 Chromium。
+`pnpm check`、`pnpm lint`、7 项单元测试和 Astro 预览构建通过。已运行完整 `pnpm verify`，其中旧 Astro 样稿的浏览器测试未全通过：Chromium 检出原有英文页 320px 溢出，Firefox 部分交互超时，WebKit 缺少系统动态库。上述测试对象是 `dist/` 中的旧样稿；当前官网在 `dist-pages/`，由 `pnpm test:pages` 单独验证。当前官网已通过 Chromium 检查及用户手动执行的 WebKit 检查；旧样稿的完整 `pnpm verify` 尚未重新验收。
 
 使用 Node 24.19.0（24.x）、pnpm 11.25.0：
 
@@ -110,7 +110,7 @@ pnpm test:pages
 
 `pnpm test:pages` 通过临时本地 HTTP 服务检查 `/corporate-portal/` 下的发布产物。直接验证本地源文件可运行 `node scripts/check-design-prototype.mjs`。结果及截图写入已忽略的 `reports/design-prototype/`，不会自动覆盖仓库中的截图。
 
-用户询问 WSL 安装 WebKit 依赖后，已确认当前 Arch WSL2 无 `apt-get`，且 `sudo` 需要密码。用户已手动安装并启动 Docker，并执行 `sudo bash scripts/test-pages-webkit-container.sh`，报告输出了最终 JSON；结果待确认。当前助手会话仍无 Docker 套接字权限。可通过 `pnpm test:pages --browser=webkit` 指定浏览器；检查结尾已增加明确的 `PASS`／`FAIL` 提示，操作见 [验证与验收](VALIDATION.md#wsl-中的-webkit)。
+用户询问 WSL 安装 WebKit 依赖后，已确认当前 Arch WSL2 无 `apt-get`，且 `sudo` 需要密码。用户已手动安装并启动 Docker，执行 `sudo bash scripts/test-pages-webkit-container.sh`，核对最终 JSON 后明确确认“满足条件，WebKit测试通过”。该结果依据用户终端反馈记录，原始 WebKit JSON 未归档到仓库。可通过 `pnpm test:pages --browser=webkit` 指定浏览器；检查结尾已增加明确的 `PASS`／`FAIL` 提示，操作见 [验证与验收](VALIDATION.md#wsl-中的-webkit)。
 
 ## 仍需补充的资料
 

@@ -1,5 +1,18 @@
 # 验证记录
 
+## 2026-11-03 · 当前 Helmax 三语官网
+
+检查对象为 `dist-pages/` 中的官网首页，支持简体中文、香港繁体中文和英文。
+
+- Chromium：官网发布产物与本地 HTML 三语预览各完成 18 组视口检查，交互、加载、无脚本浏览和所选 axe 无障碍检查通过。官网原始结果已保存到 [validation-results.json](design/validation-results.json)。
+- WebKit：用户在 Arch WSL2 中安装并启动 Docker，手动执行 `sudo bash scripts/test-pages-webkit-container.sh`。官方 Playwright 1.64.1 Ubuntu 容器构建并检查当前三语官网。用户核对 `browser: webkit`、`viewportChecks: 18`，确认 `failures`、`errors` 和各项 `violations` 均为空，并明确反馈测试通过。此项依据用户终端核对结果记录，原始 WebKit JSON 未归档。
+- Astro / TypeScript、内容校验、ESLint、7 项单元测试和 Astro 预览构建通过。
+- 三语官网提交 `1015f9e` 的 [Pages 工作流](https://github.com/jwuang/corporate-portal/actions/runs/41601868128) 构建与部署成功；三个线上语言地址均已检查为 HTTP 200，语言标记和标题正确。
+
+旧 Astro 样稿的完整 `pnpm verify` 仍有测试失败：Chromium 英文页 320px 溢出、Firefox 部分交互超时，以及宿主 WebKit 动态库缺失。该次运行检查 `dist/`，本次容器 WebKit 检查 `dist-pages/`。当前官网的 Firefox 检查及旧样稿完整验证未重新验收。
+
+## 2026-10-26 · 早期 Astro 样稿
+
 执行日期：2026-10-26。环境：Node 24.19.0、pnpm 11.25.0，当前云端 Linux 工作区。
 
 - Astro / TypeScript：0 errors、0 warnings、0 hints。
