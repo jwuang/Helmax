@@ -8,7 +8,7 @@
   <link rel="alternate" hreflang="zh-CN" href="?lang=zh-cn" data-locale="zh-cn">
   <link rel="alternate" hreflang="zh-HK" href="?lang=zh-hk" data-locale="zh-hk">
   <link rel="alternate" hreflang="en" href="?lang=en" data-locale="en">
-  <title data-i18n="pageTitle">Helmax · 电子元器件、设备与工具</title>
+  <title data-i18n="pageTitle">Helmax</title>
   <script>
     (() => {
       const root = document.documentElement;
@@ -85,23 +85,22 @@
     .skip { position: fixed; z-index: 100; top: 12px; left: 16px; padding: 14px 20px; background: white; transform: translateY(-180%); }
     .skip:focus { transform: none; }
     .header { position: fixed; inset: 0 0 auto; height: var(--header-height); z-index: 40; background: rgb(244 247 251 / 96%); border-bottom: 1px solid rgb(24 40 62 / 12%); }
-    .header-inner { height: 100%; margin-inline: var(--gutter); display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .header-inner { height: var(--header-height); margin-inline: var(--gutter); display: flex; align-items: center; justify-content: space-between; gap: 24px; }
     .brand { display: inline-flex; align-items: center; min-height: 44px; flex-shrink: 0; }
     .brand img { width: 122px; height: auto; display: block; mix-blend-mode: multiply; }
     .desktop-nav { display: flex; align-items: center; gap: 38px; }
     .desktop-nav a { display: inline-flex; min-height: 44px; align-items: center; font-size: 14px; }
     .desktop-nav a:hover { text-decoration: underline; text-underline-offset: 7px; }
     .desktop-nav .contact-link { border: 1px solid #bec6cb; padding-inline: 20px; }
-    .header-tools { display: flex; align-items: center; gap: 20px; }
-    .language-menu { position: relative; color: var(--ink); font-size: 13px; }
-    .language-menu summary { display: flex; align-items: center; justify-content: center; gap: 10px; min-width: 64px; min-height: 44px; cursor: pointer; list-style: none; }
+    .header-tools { display: flex; align-items: center; height: 100%; gap: 20px; }
+    .language-menu { position: relative; width: 104px; height: 100%; flex-shrink: 0; color: var(--ink); font-size: 13px; }
+    .language-menu summary { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; height: 100%; min-height: 44px; cursor: pointer; list-style: none; }
     .language-menu summary::-webkit-details-marker { display: none; }
     .language-menu[open] summary { background: #e5edf5; }
-    .language-options { position: absolute; right: 0; top: calc(100% + 8px); min-width: 168px; padding: 8px; background: var(--paper); border: 1px solid #b8c9d9; box-shadow: 0 12px 24px rgb(13 25 44 / 12%); }
-    .language-options a { display: flex; align-items: center; justify-content: space-between; min-height: 44px; padding: 8px 12px; }
+    .language-options { position: absolute; right: 0; top: 100%; width: 100%; padding: 4px; background: var(--paper); border: 1px solid #b8c9d9; box-shadow: 0 12px 24px rgb(13 25 44 / 12%); }
+    .language-options a { display: flex; align-items: center; justify-content: center; min-height: 36px; padding: 6px 8px; text-align: center; white-space: nowrap; }
     .language-options a:hover { background: #e5edf5; }
     .language-options a[aria-current="page"] { font-weight: 600; text-decoration: underline; text-underline-offset: 5px; }
-    .language-options a[aria-current="page"]::after { content: '✓'; }
     .mobile-menu { display: none; }
     .chapter { position: relative; min-height: 100svh; padding: calc(var(--header-height) + 46px) var(--gutter) 76px; display: flex; flex-direction: column; justify-content: center; scroll-snap-align: start; }
     .chapter > .content { width: 100%; max-width: 1440px; margin-inline: auto; }
@@ -286,6 +285,7 @@
     }
     @media (max-width: 360px) {
       :root { --gutter: 22px; }
+      .header-inner, .header-tools { gap: 8px; }
       .hero h1 { font-size: 38px; }
       .hero-actions { gap: 18px; }
       .primary { gap: 24px; padding-inline: 18px; }
@@ -293,6 +293,9 @@
       html[lang="en"] .value { grid-template-columns: 1fr; gap: 0; }
       .product-pair { gap: 12px; }
       .product h4, .product > p { margin-inline: 10px; }
+    }
+    @media (pointer: coarse) {
+      .language-options a { min-height: 44px; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; scroll-snap-type: none; }
@@ -315,7 +318,10 @@
       </nav>
       <div class="header-tools">
       <details class="language-menu">
-        <summary aria-label="简体：选择语言" data-i18n-aria-label="languageSummary"><span data-i18n="languageCurrent">简体</span><span aria-hidden="true">⌄</span></summary>
+        <summary aria-label="简体：选择语言" data-i18n-aria-label="languageSummary">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg>
+          <span aria-hidden="true">⌄</span>
+        </summary>
         <nav class="language-options" aria-label="选择语言" data-i18n-aria-label="languageLabel">
           <a href="?lang=zh-cn" lang="zh-CN" hreflang="zh-CN" data-locale="zh-cn" aria-current="page">简体中文</a>
           <a href="?lang=zh-hk" lang="zh-HK" hreflang="zh-HK" data-locale="zh-hk">繁體中文</a>
@@ -421,7 +427,7 @@
   </div>
   <script id="home-translations" type="application/json">{
   "zh-cn": {
-    "pageTitle": "Helmax · 电子元器件、设备与工具",
+    "pageTitle": "Helmax",
     "pageDescription": "了解 Helmax 的企业理念、电子元器件、设备与工具，以及采购与供应链支持。",
     "loader": "正在准备",
     "skip": "跳至主要内容",
@@ -430,7 +436,6 @@
     "mobileNavLabel": "手机导航",
     "languageLabel": "选择语言",
     "languageSummary": "简体：选择语言",
-    "languageCurrent": "简体",
     "menu": "菜单",
     "home": "首页",
     "about": "关于企业",
@@ -525,7 +530,7 @@
     "backToTop": "回到开篇"
   },
   "zh-hk": {
-    "pageTitle": "Helmax · 電子元器件、設備與工具",
+    "pageTitle": "Helmax",
     "pageDescription": "了解 Helmax 的企業理念、電子元器件、設備與工具，以及採購與供應鏈支援。",
     "loader": "正在準備",
     "skip": "跳至主要內容",
@@ -534,7 +539,6 @@
     "mobileNavLabel": "手機導覽",
     "languageLabel": "選擇語言",
     "languageSummary": "繁體：選擇語言",
-    "languageCurrent": "繁體",
     "menu": "選單",
     "home": "首頁",
     "about": "關於企業",
@@ -629,7 +633,7 @@
     "backToTop": "回到開篇"
   },
   "en": {
-    "pageTitle": "Helmax · Electronic components, equipment & tools",
+    "pageTitle": "Helmax",
     "pageDescription": "Explore Helmax’s values, electronic components, equipment and tools, and procurement and supply chain support.",
     "loader": "Getting ready",
     "skip": "Skip to main content",
@@ -638,7 +642,6 @@
     "mobileNavLabel": "Mobile navigation",
     "languageLabel": "Choose language",
     "languageSummary": "EN: Choose language",
-    "languageCurrent": "EN",
     "menu": "Menu",
     "home": "Home",
     "about": "About",
