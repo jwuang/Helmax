@@ -25,7 +25,8 @@ jobs:
       - run: pnpm check
       - run: pnpm lint
       - run: pnpm test
-      - run: pnpm build
+      - run: pnpm build:cloudflare
+      - run: pnpm exec cf deploy --prebuilt --dry-run
       - run: pnpm exec playwright install --with-deps chromium firefox webkit
       - run: pnpm test:e2e
       - run: pnpm test:e2e --browser=firefox
