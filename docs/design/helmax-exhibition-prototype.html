@@ -34,19 +34,8 @@
         if (!finished) root.classList.add('is-loading');
       }, 120);
       fallbackTimer = setTimeout(finish, 4500);
-      document.addEventListener('DOMContentLoaded', () => {
-        if (finished) return;
-        const shell = document.getElementById('page-content');
-        if (shell) {
-          shell.inert = true;
-          shell.setAttribute('aria-busy', 'true');
-        }
-        const logo = document.querySelector('.brand img');
-        Promise.allSettled([
-          document.fonts ? document.fonts.ready : Promise.resolve(),
-          logo && typeof logo.decode === 'function' ? logo.decode() : Promise.resolve(),
-        ]).then(finish);
-      }, { once: true });
+      // The static page is ready when parsed; images must not block reading it.
+      document.addEventListener('DOMContentLoaded', finish, { once: true });
       window.addEventListener('pageshow', (event) => { if (event.persisted) finish(); });
     })();
   </script>
@@ -77,7 +66,7 @@
     .is-loading .page-loader { display: grid; }
     .page-loader[hidden] { display: none; }
     .loader-content { width: min(210px, calc(100% - 64px)); text-align: center; }
-    .loader-logo { width: 172px; height: auto; display: block; margin-inline: auto; mix-blend-mode: multiply; }
+    .loader-logo { display: block; color: var(--navy); font: 700 42px/1 Arial, sans-serif; letter-spacing: -.05em; }
     .loader-progress { height: 2px; width: 172px; max-width: 100%; margin: 32px auto 18px; background: #d2deea; overflow: hidden; }
     .loader-progress::before { content: ''; display: block; width: 45%; height: 100%; background: #1688ac; animation: loading 1.3s ease-in-out infinite alternate; }
     .loader-label { display: block; font-size: 13px; color: #52677c; letter-spacing: .1em; }
@@ -306,7 +295,7 @@
 </head>
 <body>
   <div class="page-loader" id="page-loader" role="status" aria-live="polite" aria-atomic="true">
-    <div class="loader-content"><img class="loader-logo" src="assets/helmax-logo.png" alt="Helmax" width="2762" height="626"><div class="loader-progress" aria-hidden="true"></div><span class="loader-label" data-i18n="loader">正在准备</span></div>
+    <div class="loader-content"><span class="loader-logo">Helmax</span><div class="loader-progress" aria-hidden="true"></div><span class="loader-label" data-i18n="loader">正在准备</span></div>
   </div>
   <div class="page-content" id="page-content">
   <a class="skip" href="#main" data-i18n="skip">跳至主要内容</a>

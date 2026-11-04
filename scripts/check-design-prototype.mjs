@@ -49,6 +49,38 @@ const browser = await browserType.launch({
   ...(browserName === 'chromium' && process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {}),
 });
 const ready = async (page) => page.waitForFunction(() => !document.documentElement.classList.contains('is-preparing'));
+// Keep the real document-ready callback under test control without production hooks.
+// This exposes the brief loading state while an optional logo stays pending.
+const deferDocumentReady = ({ pendingLogoUrl, holdFallback = false } = {}) => {
+  const addEventListener = document.addEventListener;
+  const setTimeout = window.setTimeout;
+  const listeners = [];
+  let readyEvent;
+  // Keep screenshot/axe duration out of the loading-state check. The separate
+  // stalled-document case below exercises the real, unchanged safety timeout.
+  if (holdFallback) {
+    window.setTimeout = function (callback, delay, ...args) {
+      return delay === 4500 ? 0 : setTimeout.call(this, callback, delay, ...args);
+    };
+  }
+  addEventListener.call(document, 'DOMContentLoaded', (event) => {
+    readyEvent = event;
+    window.setTimeout = setTimeout;
+    if (pendingLogoUrl) document.querySelector('.brand img').src = pendingLogoUrl;
+  }, { once: true });
+  document.addEventListener = function (type, listener, options) {
+    if (type === 'DOMContentLoaded') listeners.push(listener);
+    else addEventListener.call(this, type, listener, options);
+  };
+  window.__releaseDocumentReadyForReview = () => {
+    if (!readyEvent) throw new Error('Document is not ready for review');
+    document.addEventListener = addEventListener;
+    for (const listener of listeners.splice(0)) {
+      if (typeof listener === 'function') listener.call(document, readyEvent);
+      else listener?.handleEvent(readyEvent);
+    }
+  };
+};
 const audit = async (page, label) => {
   const axe = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
   results.accessibility.push({ label, violations: axe.violations.map((item) => ({
@@ -188,38 +220,64 @@ try {
   }
   await noJs.close();
 
+  const pendingLogoUrl = 'https://helmax.test/helmax-pending-logo.png';
+  const logoBody = await readFile(join(projectRoot, 'docs/design/assets/helmax-logo.png'));
   for (const [locale, expected] of Object.entries(locales)) {
     const slow = await browser.newContext({ viewport: { width: 1440, height: 900 } });
-    await slow.addInitScript(() => {
-      Object.defineProperty(document.fonts, 'ready', { value: new Promise((done) => { window.__releaseFontsForReview = done; }) });
+    let releaseLogo;
+    const logoGate = new Promise((done) => { releaseLogo = done; });
+    await slow.route(pendingLogoUrl, async (route) => {
+      await logoGate;
+      await route.fulfill({ contentType: 'image/png', body: logoBody });
     });
-    const loadingPage = await slow.newPage();
-    loadingPage.on('pageerror', (error) => results.errors.push(error.message));
-    await loadingPage.goto(sourceFor(locale), { waitUntil: 'load' });
-    await loadingPage.waitForSelector('#page-loader', { state: 'visible' });
-    const pending = await loadingPage.evaluate(() => ({
-      inert: document.getElementById('page-content').inert,
-      busy: document.getElementById('page-content').getAttribute('aria-busy'),
-      label: document.querySelector('.loader-label').textContent,
-    }));
-    check(pending.inert && pending.busy === 'true' && pending.label === expected.loading, `${locale}: loading state or translation`);
-    await loadingPage.screenshot({ path: `${out}/helmax-${locale}-loading-desktop.png` });
-    await audit(loadingPage, `${locale}-loading`);
-    await loadingPage.emulateMedia({ reducedMotion: 'reduce' });
-    check(await loadingPage.locator('.loader-progress').evaluate((element) => window.getComputedStyle(element, '::before').animationName) === 'none', `${locale}: loader reduced motion`);
-    await loadingPage.evaluate(() => window.__releaseFontsForReview());
-    await loadingPage.waitForSelector('#page-loader', { state: 'hidden' });
-    const afterReady = await loadingPage.evaluate(() => ({
-      inert: document.getElementById('page-content').inert,
-      busy: document.getElementById('page-content').getAttribute('aria-busy'),
-      contentVisible: window.getComputedStyle(document.getElementById('page-content')).visibility,
-    }));
-    results.loading[locale] = { pending, afterReady };
-    check(!afterReady.inert && afterReady.busy === 'false' && afterReady.contentVisible === 'visible', `${locale}: ready content blocked`);
-    await slow.close();
+    try {
+      await slow.addInitScript(deferDocumentReady, { pendingLogoUrl, holdFallback: true });
+      const loadingPage = await slow.newPage();
+      loadingPage.on('pageerror', (error) => results.errors.push(error.message));
+      await Promise.all([
+        loadingPage.waitForRequest(pendingLogoUrl),
+        loadingPage.goto(sourceFor(locale), { waitUntil: 'domcontentloaded' }),
+      ]);
+      await loadingPage.waitForSelector('#page-loader', { state: 'visible' });
+      const pending = await loadingPage.evaluate(() => ({
+        contentVisible: window.getComputedStyle(document.getElementById('page-content')).visibility,
+        label: document.querySelector('.loader-label').textContent,
+        wordmark: document.querySelector('.loader-logo').textContent,
+        loaderImages: document.querySelectorAll('#page-loader img').length,
+        logoComplete: document.querySelector('.brand img').complete,
+      }));
+      check(pending.contentVisible === 'hidden' && pending.label === expected.loading, `${locale}: loading state or translation`);
+      check(pending.wordmark === 'Helmax' && pending.loaderImages === 0 && !pending.logoComplete, `${locale}: loading wordmark depends on image download`);
+      await loadingPage.screenshot({ path: `${out}/helmax-${locale}-loading-desktop.png` });
+      await audit(loadingPage, `${locale}-loading`);
+      await loadingPage.setViewportSize({ width: 390, height: 844 });
+      await loadingPage.screenshot({ path: `${out}/helmax-${locale}-loading-mobile.png` });
+      await loadingPage.emulateMedia({ reducedMotion: 'reduce' });
+      check(await loadingPage.locator('.loader-progress').evaluate((element) => window.getComputedStyle(element, '::before').animationName) === 'none', `${locale}: loader reduced motion`);
+      const afterReady = await loadingPage.evaluate(() => {
+        Object.defineProperty(document.fonts, 'ready', { value: new Promise(() => {}) });
+        window.__releaseDocumentReadyForReview();
+        // Check immediately so a delayed fallback cannot mask resource blocking.
+        return {
+          preparing: document.documentElement.classList.contains('is-preparing'),
+          loaderHidden: document.getElementById('page-loader').hidden,
+          inert: document.getElementById('page-content').inert,
+          busy: document.getElementById('page-content').getAttribute('aria-busy'),
+          contentVisible: window.getComputedStyle(document.getElementById('page-content')).visibility,
+          logoComplete: document.querySelector('.brand img').complete,
+        };
+      });
+      results.loading[locale] = { pending, afterReady };
+      check(!afterReady.preparing && afterReady.loaderHidden && !afterReady.inert && afterReady.busy === 'false' && afterReady.contentVisible === 'visible' && !afterReady.logoComplete, `${locale}: pending logo or fonts block ready content`);
+      check(await loadingPage.locator('h1').isVisible(), `${locale}: ready heading hidden`);
+    } finally {
+      releaseLogo();
+      await slow.unrouteAll({ behavior: 'wait' });
+      await slow.close();
+    }
   }
   const stalled = await browser.newContext();
-  await stalled.addInitScript(() => { Object.defineProperty(document.fonts, 'ready', { value: new Promise(() => {}) }); });
+  await stalled.addInitScript(deferDocumentReady, {});
   const stalledPage = await stalled.newPage();
   await stalledPage.goto(sourceFor('en'), { waitUntil: 'load' });
   await stalledPage.waitForSelector('#page-loader', { state: 'visible' });
@@ -230,7 +288,7 @@ try {
     contentVisible: window.getComputedStyle(document.getElementById('page-content')).visibility,
   }));
   results.loading.timeout = timeout;
-  check(!timeout.inert && timeout.elapsedMs <= 6000 && timeout.contentVisible === 'visible', 'Loading timeout failed');
+  check(!timeout.inert && timeout.elapsedMs >= 4000 && timeout.elapsedMs <= 6000 && timeout.contentVisible === 'visible', 'Loading timeout failed');
   await stalled.close();
   const broken = await browser.newContext();
   await broken.addInitScript(() => {
