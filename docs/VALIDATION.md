@@ -16,7 +16,7 @@ pnpm test:pages --browser=webkit
 
 - 三语各 1440×900、1920×1080、1280×720、768×1024、390×844、320×740 六种视口，共 18 组；检查溢出、章节边界、导航、图片及脚本错误。
 - 语言切换、章节锚点、刷新、返回、Escape、点击外部和手机菜单互斥。
-- 加载完成、超时释放、Logo 错误、减少动态效果和无 JavaScript 浏览。
+- HTML 就绪后立即展示正文（Logo 和字体仍未就绪也不阻塞）、加载态、超时释放、Logo 错误、减少动态效果和无 JavaScript 浏览。
 - 三语桌面、手机、菜单和加载页的 axe WCAG 2 A/AA、2.1 A/AA 检查。
 
 结果和截图输出到已忽略的 `reports/design-prototype/`，不会自动覆盖归档截图。自动检查不能代替人工阅读、真实设备和完整无障碍评估。历史验证保留在 [TEST-RESULTS.md](TEST-RESULTS.md)，当前进度见 [PROJECT-STATUS.md](PROJECT-STATUS.md#实现与验证)；历史通过记录不能代替本次变更验证。
