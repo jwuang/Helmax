@@ -12,7 +12,7 @@
 
 首页源文件沿用历史路径 [helmax-exhibition-prototype.html](design/helmax-exhibition-prototype.html)。`scripts/build-pages.ts` 从同一 HTML 模板与内嵌 `home-translations` 字典生成完整三语静态页面，`.github/workflows/pages.yml` 验证并发布到 GitHub Pages。页面标题与页脚已改为正式官网表述。不要再把该版本当作等待迁移才能使用的概念稿。
 
-三语官网提交 `1015f9e` 已推送 `origin/main`，[Pages 工作流](https://github.com/jwuang/corporate-portal/actions/runs/41601868128) 构建与部署成功；已读取三个线上地址，均返回 HTTP 200，且文档语言和标题正确。
+2026-11-04 官网清理和工具链升级提交 [`47d38a6`](https://github.com/jwuang/corporate-portal/commit/47d38a61dcdd4a805310ad35cd2f7af920f15a96) 已推送 `origin/main`，[Pages 工作流](https://github.com/jwuang/corporate-portal/actions/runs/41801095093) 构建与部署成功，[官网 CI](https://github.com/jwuang/corporate-portal/actions/runs/41801095101) 也已通过 Chromium、Firefox 和 WebKit 检查。发布后读取默认首页、三个语言页面、三张图片和 `robots.txt`，8 个文件均返回 HTTP 200，SHA-256 与本地构建一致；三语文档语言、Helmax 标题和六章结构正确。
 
 2026-11-04 用户明确要求移除早期样稿，只保留当前段落式展览官网。开发、构建、预览、单元测试和浏览器检查统一围绕这版官网；`pnpm build` 与 `pnpm build:pages` 均生成 `dist-pages/`。网站继续沿用既有的 `noindex, nofollow` 与禁止抓取设置；后续收录策略可单独调整。
 
@@ -100,11 +100,11 @@ pnpm test:pages --browser=webkit
 
 `pnpm verify` 执行类型检查、lint、页面构建单元测试、官网构建和 Chromium 检查。`pnpm test:e2e` 与 `pnpm test:pages` 为同一官网检查入口；CI 对官网执行 Chromium、Firefox 和 WebKit 检查。浏览器覆盖三语各六种视口（共 18 组）、布局边界、语言切换、锚点、刷新和返回、菜单、加载完成及异常、减少动态效果、无 JavaScript 浏览与 axe 无障碍检查，细节见 [验证指南](VALIDATION.md)。
 
-2026-11-04 移除早期样稿并升级工具链后，`pnpm verify` 全部通过：类型检查、lint、5 项单元测试、官网构建，以及 Chromium 的 18 组视口、交互、加载和无障碍检查。Firefox 的相同 18 组检查也全部通过，两个浏览器的错误、失败和所选 axe 违规均为空。新预览服务器的实际 HTTP 200／301／404 响应已验证；开发模式已在 Node 26.13.0 下验证首次构建、模板变更自动重建、页面响应和正常退出，模板内容保持不变。当前本地 WebKit 缺少系统库，Docker 服务不可用，因此本次尚未复验 WebKit；不沿用历史结果宣称通过。
+2026-11-04 移除早期样稿并升级工具链后，`pnpm verify` 全部通过：类型检查、lint、5 项单元测试、官网构建，以及 Chromium 的 18 组视口、交互、加载和无障碍检查。Firefox 的相同 18 组检查也全部通过，两个浏览器的错误、失败和所选 axe 违规均为空。新预览服务器的实际 HTTP 200／301／404 响应已验证；开发模式已在 Node 26.13.0 下验证首次构建、模板变更自动重建、页面响应和正常退出，模板内容保持不变。本地 WebKit 因系统库缺失且 Docker 服务不可用而未运行；推送后由上述 GitHub Actions 官网 CI 补齐验证，三个浏览器步骤均成功，整个检查工作流通过。
 
 `pnpm install --frozen-lockfile` 已通过；最初使用临时工具链验证，随后用户已将当前目录切换到 Node 26.13.0，pnpm 为 12.16.1。Lighthouse 13.6.0 对本地简体官网完成实际检查，无运行错误，报告位于已忽略的 `reports/lighthouse-upgrade.json`；单次本地分数不作为线上性能验收。最终依赖审计为 0 高危、0 严重、2 项中等风险，均在开发工具的间接依赖：`minimatch`（[公告](https://github.com/advisories/GHSA-g3hv-75wg-m249)）与 `glob`（[公告](https://github.com/advisories/GHSA-3g3m-2fjr-6pw4)）。公告修复版本跨越上游依赖的主版本范围，当前未强制覆盖，后续跟进上游兼容升级。
 
-历史记录：2026-11-03 官网 Chromium 的 18 组视口、交互、加载和所选 axe 规则检查通过；用户另在官方 Playwright Docker 容器中手动执行 WebKit 检查，核对 `browser: webkit`、`viewportChecks: 18` 及空的 `failures`、`errors`、`violations` 后明确确认通过，原始 WebKit JSON 未归档。该记录依据用户终端反馈，不代表本次升级已通过 WebKit。操作见 [WSL 中的 WebKit](VALIDATION.md#wsl-中的-webkit)。
+历史记录：2026-11-03 官网 Chromium 的 18 组视口、交互、加载和所选 axe 规则检查通过；用户另在官方 Playwright Docker 容器中手动执行 WebKit 检查，核对 `browser: webkit`、`viewportChecks: 18` 及空的 `failures`、`errors`、`violations` 后明确确认通过，原始 WebKit JSON 未归档。该历史记录依据用户终端反馈；本次升级的 WebKit 结论以上述 2026-11-04 CI 为依据。操作见 [WSL 中的 WebKit](VALIDATION.md#wsl-中的-webkit)。
 
 `pnpm test:pages` 通过临时本地 HTTP 服务检查 `/corporate-portal/` 下的发布产物；直接验证本地 HTML 源文件可运行 `node scripts/check-design-prototype.mjs`。结果及截图写入已忽略的 `reports/design-prototype/`，不会自动覆盖归档截图。[CHAT-LOG.md](CHAT-LOG.md) 与 [TEST-RESULTS.md](TEST-RESULTS.md) 保留历史原文，其中早期样稿、命令和测试结论仅供追溯，不作为当前操作指南。
 
