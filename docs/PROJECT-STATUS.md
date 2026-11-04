@@ -1,6 +1,6 @@
 # Helmax 官网：项目进度与接续说明
 
-更新日期：2026-11-03。用户已明确确认：**现在这版就是正式网站**。原概念稿已作为官网首页维护，并补齐简体中文、香港繁体中文和英文。
+更新日期：2026-11-04。用户已明确确认：**现在这版就是正式网站**。原概念稿已作为官网首页维护，并补齐简体中文、香港繁体中文和英文。
 
 ## 当前正式网站
 
@@ -14,7 +14,7 @@
 
 三语官网提交 `1015f9e` 已推送 `origin/main`，[Pages 工作流](https://github.com/jwuang/corporate-portal/actions/runs/41601868128) 构建与部署成功；已读取三个线上地址，均返回 HTTP 200，且文档语言和标题正确。
 
-仓库 `src/` 仍是之前的 Astro 样稿，尚未套用当前 Helmax 官网设计。当前线上官网以 Pages 发布内容为准。网站继续沿用既有的 `noindex, nofollow` 与禁止抓取设置；后续收录策略可单独调整。
+2026-11-04 用户明确要求移除早期样稿，只保留当前段落式展览官网。开发、构建、预览、单元测试和浏览器检查统一围绕这版官网；`pnpm build` 与 `pnpm build:pages` 均生成 `dist-pages/`。网站继续沿用既有的 `noindex, nofollow` 与禁止抓取设置；后续收录策略可单独调整。
 
 ## 从这里继续
 
@@ -27,7 +27,7 @@
 
 | 项目 | 用户明确的要求 |
 | --- | --- |
-| 网站用途 | 企业介绍／展示网站；用户已确认当前版本为正式网站 |
+| 网站用途 | 企业介绍／展示网站；仅保留当前段落式展览官网，移除早期样稿 |
 | 服务对象 | 制造类企业 |
 | 品牌 | 统一使用 **Helmax** 名称和企业 PPT 中的 Logo |
 | 展示范围 | 完整覆盖电子元器件，以及设备与工具 |
@@ -69,6 +69,7 @@
 | [首页源文件](design/helmax-exhibition-prototype.html) | 正式官网模板、三语字典与本地可交互预览 |
 | [素材目录](design/assets/) | PPT 提取的 Logo、焊接设备和水泵示例图片 |
 | [预览截图](design/previews/) | 三语桌面与手机首屏等截图 |
+| [语言定义](../scripts/lib/locales.ts) | 语言列表、类型和 HTML 语言码 |
 | [官网检查脚本](../scripts/check-design-prototype.mjs) | 三语各六种尺寸、交互、加载与无障碍验证 |
 | [检查结果](design/validation-results.json) | 本次 Pages 官网浏览器检查记录 |
 | [本地 UI/UX 技能](../.agents/skills/ui-ux-pro-max/SKILL.md) | 后续设计继续使用的技能及上游许可证 |
@@ -83,34 +84,29 @@
 
 ## 实现与验证
 
-当前官网是三语静态网站，没有数据库、后台或登录。Pages 输出仅含默认首页、三个语言目录、三张展示图片和 `robots.txt`。
+官网是三语静态网站，没有数据库、后台或登录。唯一发布目录为 `dist-pages/`，仅含默认首页、三个语言目录、三张展示图片和 `robots.txt`。`pnpm dev` 构建并监听 HTML／素材变更，在 4321 端口提供页面，修改后刷新；`pnpm preview` 服务已有产物。
 
-本次官网浏览器检查覆盖：
+当前工具链为 Node 26.13.0（26.x LTS）和 pnpm 12.16.1，Node 类型声明同步至 26.x。TypeScript 保留 6.0.3：最新稳定版 7.0.2 不在 `typescript-eslint` 8.72.1 的支持范围（`<6.1.0`）内。
 
-- 三语各 1440×900、1920×1080、1280×720、768×1024、390×844、320×740 六种尺寸，共 18 组；检查横向溢出、章节高度、内容边界、导航重叠、图片及脚本错误。
-- 三语菜单、当前语言、章节锚点、刷新、返回、Escape、点击外部、手机菜单互斥。
-- 各语言的加载等待与完成、减少动态效果，以及超时释放、Logo 错误、无 JavaScript 阅读和语言切换。
-- 三语桌面、手机、展开的语言菜单和加载页的 axe 检查，规则为 WCAG 2 A/AA 与 2.1 A/AA。
-
-官网上述 18 组视口、全部交互与加载检查在 Chromium 中通过，未记录脚本错误、缺失图片、横向溢出或所选 axe 规则违规；本地 HTML 的三语预览也已完成同范围检查。用户另在官方 Playwright Docker 容器中手动运行官网 WebKit 检查，并核对 JSON 确认通过：`browser` 为 `webkit`，`viewportChecks` 为 18，`failures`、`errors` 及全部 `violations` 均为空。
-
-`pnpm check`、`pnpm lint`、7 项单元测试和 Astro 预览构建通过。已运行完整 `pnpm verify`，其中旧 Astro 样稿的浏览器测试未全通过：Chromium 检出原有英文页 320px 溢出，Firefox 部分交互超时，WebKit 缺少系统动态库。上述测试对象是 `dist/` 中的旧样稿；当前官网在 `dist-pages/`，由 `pnpm test:pages` 单独验证。当前官网已通过 Chromium 检查及用户手动执行的 WebKit 检查；旧样稿的完整 `pnpm verify` 尚未重新验收。
-
-使用 Node 24.19.0（24.x）、pnpm 11.25.0：
+本次检查了 [Node 类型升级 PR #6](https://github.com/jwuang/corporate-portal/pull/6) 和 [Lighthouse 升级 PR #9](https://github.com/jwuang/corporate-portal/pull/9)。对应升级已纳入本次改动：`@types/node` 26.6.6、Lighthouse 13.6.0，另将 ESLint 升至 10.14.0、Pages Actions 升至最新稳定主版本。移除 Astro、Tailwind 及样稿专用工具后保留 10 个直接开发依赖。用户已确认本地预览正常，并授权推送及部署。
 
 ```sh
 pnpm install --frozen-lockfile
-pnpm check
-pnpm lint
-pnpm test
-pnpm build:pages
-pnpm exec playwright install chromium
-pnpm test:pages
+pnpm exec playwright install --with-deps chromium firefox webkit
+pnpm verify
+pnpm test:pages --browser=firefox
+pnpm test:pages --browser=webkit
 ```
 
-`pnpm test:pages` 通过临时本地 HTTP 服务检查 `/corporate-portal/` 下的发布产物。直接验证本地源文件可运行 `node scripts/check-design-prototype.mjs`。结果及截图写入已忽略的 `reports/design-prototype/`，不会自动覆盖仓库中的截图。
+`pnpm verify` 执行类型检查、lint、页面构建单元测试、官网构建和 Chromium 检查。`pnpm test:e2e` 与 `pnpm test:pages` 为同一官网检查入口；CI 对官网执行 Chromium、Firefox 和 WebKit 检查。浏览器覆盖三语各六种视口（共 18 组）、布局边界、语言切换、锚点、刷新和返回、菜单、加载完成及异常、减少动态效果、无 JavaScript 浏览与 axe 无障碍检查，细节见 [验证指南](VALIDATION.md)。
 
-用户询问 WSL 安装 WebKit 依赖后，已确认当前 Arch WSL2 无 `apt-get`，且 `sudo` 需要密码。用户已手动安装并启动 Docker，执行 `sudo bash scripts/test-pages-webkit-container.sh`，核对最终 JSON 后明确确认“满足条件，WebKit测试通过”。该结果依据用户终端反馈记录，原始 WebKit JSON 未归档到仓库。可通过 `pnpm test:pages --browser=webkit` 指定浏览器；检查结尾已增加明确的 `PASS`／`FAIL` 提示，操作见 [验证与验收](VALIDATION.md#wsl-中的-webkit)。
+2026-11-04 移除早期样稿并升级工具链后，`pnpm verify` 全部通过：类型检查、lint、5 项单元测试、官网构建，以及 Chromium 的 18 组视口、交互、加载和无障碍检查。Firefox 的相同 18 组检查也全部通过，两个浏览器的错误、失败和所选 axe 违规均为空。新预览服务器的实际 HTTP 200／301／404 响应已验证；开发模式已在 Node 26.13.0 下验证首次构建、模板变更自动重建、页面响应和正常退出，模板内容保持不变。当前本地 WebKit 缺少系统库，Docker 服务不可用，因此本次尚未复验 WebKit；不沿用历史结果宣称通过。
+
+`pnpm install --frozen-lockfile` 已通过；最初使用临时工具链验证，随后用户已将当前目录切换到 Node 26.13.0，pnpm 为 12.16.1。Lighthouse 13.6.0 对本地简体官网完成实际检查，无运行错误，报告位于已忽略的 `reports/lighthouse-upgrade.json`；单次本地分数不作为线上性能验收。最终依赖审计为 0 高危、0 严重、2 项中等风险，均在开发工具的间接依赖：`minimatch`（[公告](https://github.com/advisories/GHSA-g3hv-75wg-m249)）与 `glob`（[公告](https://github.com/advisories/GHSA-3g3m-2fjr-6pw4)）。公告修复版本跨越上游依赖的主版本范围，当前未强制覆盖，后续跟进上游兼容升级。
+
+历史记录：2026-11-03 官网 Chromium 的 18 组视口、交互、加载和所选 axe 规则检查通过；用户另在官方 Playwright Docker 容器中手动执行 WebKit 检查，核对 `browser: webkit`、`viewportChecks: 18` 及空的 `failures`、`errors`、`violations` 后明确确认通过，原始 WebKit JSON 未归档。该记录依据用户终端反馈，不代表本次升级已通过 WebKit。操作见 [WSL 中的 WebKit](VALIDATION.md#wsl-中的-webkit)。
+
+`pnpm test:pages` 通过临时本地 HTTP 服务检查 `/corporate-portal/` 下的发布产物；直接验证本地 HTML 源文件可运行 `node scripts/check-design-prototype.mjs`。结果及截图写入已忽略的 `reports/design-prototype/`，不会自动覆盖归档截图。[CHAT-LOG.md](CHAT-LOG.md) 与 [TEST-RESULTS.md](TEST-RESULTS.md) 保留历史原文，其中早期样稿、命令和测试结论仅供追溯，不作为当前操作指南。
 
 ## 仍需补充的资料
 

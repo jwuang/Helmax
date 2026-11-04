@@ -12,7 +12,7 @@
 
 发布页面在构建时生成完整译文，关闭 JavaScript 仍可阅读和切换三语。本地直接打开首页 HTML 源文件时，语言菜单通过 `?lang=zh-cn`、`?lang=zh-hk`、`?lang=en` 预览译文，需要启用 JavaScript；未识别的语言回退至简体。
 
-页面标题与页脚已采用正式官网表述。搜索收录策略沿用既有的 `noindex, nofollow` 和禁止抓取的 `robots.txt`。图片与语言链接使用相对路径，可在 `/corporate-portal/` 下加载。`src/` 中的早期 Astro 样稿独立构建；线上官网以 Pages 产物为准。
+页面标题与页脚已采用正式官网表述。搜索收录策略沿用既有的 `noindex, nofollow` 和禁止抓取的 `robots.txt`。图片与语言链接使用相对路径，可在 `/corporate-portal/` 下加载。仓库仅保留这版展览官网，发布产物统一为 `dist-pages/`。
 
 ## 首次启用
 
@@ -25,9 +25,9 @@
 
 ## 更新与本地验证
 
-推送首页源文件、所用图片、打包／检查脚本或相关依赖等文件的变更到 `main`，会触发 [.github/workflows/pages.yml](../.github/workflows/pages.yml)。其他修改可按需要手动触发发布。拉取请求仅执行原有检查，合入 `main` 后才会发布。
+推送首页源文件、所用图片、打包／检查脚本或相关依赖等文件的变更到 `main`，会触发 [.github/workflows/pages.yml](../.github/workflows/pages.yml)。其他修改可按需要手动触发发布。拉取请求检查官网构建、单元测试及三种浏览器，合入 `main` 后才会发布。
 
-本地使用项目指定的 Node 24.19.0（24.x）和 pnpm 11.25.0：
+本地使用项目指定的 Node 26.13.0（26.x LTS）和 pnpm 12.16.1：
 
 ```sh
 pnpm install --frozen-lockfile
@@ -39,7 +39,7 @@ pnpm exec playwright install --with-deps chromium
 pnpm test:pages
 ```
 
-`build:pages` 每次清理并重建 `dist-pages/`，只包含：
+`pnpm build` 与 `pnpm build:pages` 执行同一构建，每次清理并重建 `dist-pages/`，只包含：
 
 - `index.html`：简体默认首页。
 - `zh-cn/index.html`、`zh-hk/index.html`、`en/index.html`：从同一官网模板与内嵌翻译字典生成的三语页面。
@@ -54,6 +54,6 @@ pnpm test:pages
 
 要恢复旧版，撤销导致问题的页面或图片提交，将回退提交推送到 `main`，让 Pages 工作流重新构建发布。若上次失败原因是临时网络或 Pages 尚未启用，修复后可以手动重新运行工作流。
 
-后续在这版官网继续维护三语内容与展示资料。若未来改用 Astro 作为发布实现，需一并适配 `/corporate-portal/` 的导航、资源、canonical、hreflang、sitemap 和 404，并按其构建流程完成配置与检查。
+后续继续在这版官网维护三语内容与展示资料。语言定义位于 `scripts/lib/locales.ts`；增加语言、图片或章节时同步模板、构建和测试，并验证 `/corporate-portal/` 子路径下的资源与导航。
 
 参考：[GitHub 自定义 Pages 工作流](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)、[configure-pages 的启用权限说明](https://github.com/actions/configure-pages#inputs)。

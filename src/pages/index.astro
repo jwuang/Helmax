@@ -1,7 +1,0 @@
----
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { languageNames, locales, pathFor, htmlLanguages } from '../lib/i18n';
----
-<BaseLayout locale="zh-cn" title="欢迎 · Welcome" description="请选择语言 · Choose your language" noindex>
-  <div class="container not-found"><p class="eyebrow">WELCOME</p><h1>连接，从这里开始。</h1><p>请选择语言 · Choose your language</p><div class="flex flex-wrap gap-4">{locales.map((locale) => <a class="button" lang={htmlLanguages[locale]} href={pathFor(locale)}>{languageNames[locale]} ↗</a>)}</div></div>
-</BaseLayout>

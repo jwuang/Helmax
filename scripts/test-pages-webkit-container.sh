@@ -16,7 +16,9 @@ docker run --rm --init --ipc=host \
       --exclude=playwright-report --exclude=test-results --exclude=artifacts \
       --exclude=.env --exclude=".env.*" \
       -cf - . | tar -C /work -xf -
-    npm install --global pnpm@11.25.0
+    npm install --global --prefix /opt/helmax-toolchain \
+      "node@$(cat .node-version)" "$(node -p "require(\"./package.json\").packageManager")"
+    export PATH="/opt/helmax-toolchain/bin:$PATH"
     pnpm install --frozen-lockfile
     pnpm build:pages
     pnpm test:pages --browser=webkit

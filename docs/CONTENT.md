@@ -1,14 +1,13 @@
 # 内容维护
 
-1. 从 `src/content/services/discovery.zh-cn.md` 复制对应集合内的样例，或从案例、新闻草稿模板开始。
-2. 首先设置 `draft: true`，填写真实信息并审核；发布时改成 `draft: false`。`previewOnly: true` 只进入预览；生产会剔除。
-3. 同一集合、同一主题的三语稿共享 `translationKey`，`locale` 为 `zh-cn`、`zh-hk` 或 `en`。外语必须有同 key 简体源稿；允许暂缺译文，不自动机器翻译。草稿译文不计入 hreflang。
-4. `routeSlug` 使用小写英文字母、数字和单连字符，确定后保持稳定。文件名不决定 URL；路径为 `/{locale}/{collection}/{routeSlug}/`。
-5. title、summary、category、publishedAt 必填；order 控制顺序。可选 updatedAt、seoTitle、seoDescription。
-6. 封面放 `public/images/`，cover 写 `/images/name.webp`，必须有 coverAlt。建议预先输出 1200×675 WebP。首页大图使用 `src/assets/` 和 Astro Picture 自动生成 AVIF / WebP。
-7. 正文仅使用 Markdown，不允许原始 HTML。使用绝对站内路径链接；站外仅使用 HTTP(S)，联系链接仅使用 mailto / tel。禁止脚本、data 协议及 URL 内嵌凭据。
-8. 运行 `pnpm check`、`pnpm build:preview` 并预览全部语言。翻译缺失时切换到相应语言栏目页并显示提示；不静默展示其他语言正文。
+官网仅维护段落式展览页面。编辑 `docs/design/helmax-exhibition-prototype.html`，保留现有六章、统一产品卡片、Helmax 品牌和前置文化理念。
 
-案例与新闻没有已核实正文时不发布。企业介绍、服务承诺、资质、客户标识与隐私说明需要人工审校。`publicationReviewed` 是人工完成审核的记录，不是自动真实性证明。
+1. 文案统一维护在 HTML 内的 `home-translations` 字典中，同时更新 `zh-cn`、`zh-hk`、`en`。模板通过 `data-i18n` 及对应属性绑定文案；修改简体译文时，同步模板中的默认文本或属性，单元测试会检查两者一致。新增绑定必须有完整三语文本，构建会拒绝缺失或空白译文。
+2. 同步正文、导航、菜单、加载提示、元数据、图片替代文字和无障碍名称。保持稳定的章节锚点，避免破坏已分享的链接。
+3. 图片放在 `docs/design/assets/`，新增展示图片时更新 `scripts/build-pages.ts` 的复制清单。提供真实描述的三语替代文字，并检查文件大小和手机展示效果。
+4. 修改后运行 `pnpm dev`，刷新浏览器检查三个语言版本。再运行 `pnpm verify`；涉及交互时补充 Firefox 和 WebKit 检查，操作见 [验证与验收](VALIDATION.md)。
+5. 经审阅后提交变更；合入 `main` 的相关变更由 Pages 工作流验证并发布。
 
-更换品牌时同时检查导航、分享图片、favicon、页脚、企业全称及全部语言的内容。隐私文案应与实际 CDN/服务器日志、联系信息处理、地区和保存期限一致。
+未经核实的资料保持明确的待补提示，不虚构产品参数、库存、客户、资质、联系方式或业绩。企业关系、代理授权、供应商分级、经验年限及服务承诺必须有依据；元器件流程不能直接扩展为设备与工具的承诺。具体待补资料见 [项目进度](PROJECT-STATUS.md#仍需补充的资料)。
+
+外部链接应使用 HTTPS，联系链接使用真实的 `mailto:`／`tel:` 地址。不要在页面、脚本或图片元数据中放秘密。公开联系方式、合作品牌和企业介绍须经人工审校；隐私说明应与实际托管服务、访问日志和联系方式处理方式一致。

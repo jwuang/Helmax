@@ -2,7 +2,7 @@ import { cpSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { load } from 'cheerio';
-import { htmlLanguages, locales, type Locale } from '../src/lib/i18n';
+import { htmlLanguages, locales, type Locale } from './lib/locales';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 const designRoot = resolve(projectRoot, 'docs/design');

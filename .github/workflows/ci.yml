@@ -13,8 +13,6 @@ jobs:
   checks:
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    env:
-      ASTRO_TELEMETRY_DISABLED: '1'
     steps:
       - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
@@ -27,14 +25,16 @@ jobs:
       - run: pnpm check
       - run: pnpm lint
       - run: pnpm test
-      - run: pnpm build:preview
+      - run: pnpm build
       - run: pnpm exec playwright install --with-deps chromium firefox webkit
       - run: pnpm test:e2e
+      - run: pnpm test:e2e --browser=firefox
+      - run: pnpm test:e2e --browser=webkit
       - uses: actions/upload-artifact@v7
         if: always()
         with:
-          name: website-preview-and-test-results
+          name: helmax-website-and-test-results
           path: |
-            dist/
-            playwright-report/
+            dist-pages/
+            reports/design-prototype/
           retention-days: 7

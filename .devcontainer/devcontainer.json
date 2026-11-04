@@ -1,25 +1,20 @@
 {
-  "name": "Corporate Portal · Node 24",
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:24-bookworm",
+  "name": "Corporate Portal · Node 26",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:26-bookworm",
   "forwardPorts": [
     4321
   ],
   "portsAttributes": {
     "4321": {
-      "label": "Astro website",
+      "label": "Helmax website",
       "onAutoForward": "notify"
     }
   },
-  "containerEnv": {
-    "ASTRO_TELEMETRY_DISABLED": "1"
-  },
-  "postCreateCommand": "npm install --global pnpm@11.25.0 && pnpm install --frozen-lockfile",
+  "postCreateCommand": "npm install --global pnpm@12.16.1 && pnpm install --frozen-lockfile",
   "customizations": {
     "vscode": {
       "extensions": [
-        "astro-build.astro-vscode",
-        "dbaeumer.vscode-eslint",
-        "bradlc.vscode-tailwindcss"
+        "dbaeumer.vscode-eslint"
       ]
     }
   }

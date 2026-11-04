@@ -149,4 +149,4 @@ PPT 中需要整理的具体内容：
 - 本次没有修改网站页面或业务内容，也没有运行完整 `pnpm verify`。开发预览不用于推断正式环境性能，Firefox、WebKit 与真实移动设备尚未在本轮检查。
 - 原官网的代表性[桌面截图](design/baseline/original-home-desktop.png)、[手机截图](design/baseline/original-home-mobile.png)和[原始测量](design/baseline/original-home-results.json)已归档到仓库，便于跨设备回看。最新设计的预览和原型检查结果见 [项目进度](PROJECT-STATUS.md)。
 
-主要源码位置：[首页模板](../src/pages/%5Blocale%5D/index.astro)、[三语文案](../src/lib/i18n.ts)、[企业配置](../src/config/site.ts)、[全局样式](../src/styles/global.css)。
+当时的源码位于 `src/pages/[locale]/index.astro`、`src/lib/i18n.ts`、`src/config/site.ts` 和 `src/styles/global.css`，已于 2026-11-04 随早期样稿移除，可从 Git 历史追溯。当前官网源文件为 [展览首页](design/helmax-exhibition-prototype.html)。

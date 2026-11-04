@@ -1,15 +1,23 @@
 # 架构与扩展
 
-Astro 在构建时读取三组 Markdown 集合，校验内容模型并生成 HTML；静态服务器只提供文件。客户端仅加载菜单关闭行为。原生 details 支持无 JavaScript 导航。页面模板与组件共用布局、配置和翻译字典。
+官网使用一个 HTML 模板构建完整的简体中文、香港繁体中文和英文静态页面。共享样式与交互直接维护在模板中；构建时替换译文、页面语言、图片路径和语言链接，发布后不依赖客户端翻译脚本。静态托管只提供文件，没有数据库、后台或登录。
 
-- `src/config/`：企业公开信息；这里不放秘密。
-- `src/lib/`：语言路径、内容可见性与链接协议校验。
-- `src/content/`：服务、案例、新闻；草稿和生产样例隔离。
-- `src/pages/`：多语言页面、详情与 sitemap。
-- `scripts/`：构建前校验、产物检查、手动响应头与负载测试。
+| 文件／目录 | 职责 |
+| --- | --- |
+| `docs/design/helmax-exhibition-prototype.html` | 正式官网模板、样式、交互和 `home-translations` 字典；保留历史文件名 |
+| `docs/design/assets/` | 官网展示素材 |
+| `scripts/build-pages.ts` | 校验译文并构建默认首页、三语页面、展示图片和 robots.txt |
+| `scripts/lib/locales.ts` | 语言列表、类型和 HTML 语言码 |
+| `scripts/serve-pages.ts` | 本地静态服务、项目子路径预览和开发监听 |
+| `scripts/check-design-prototype.mjs` | 官网视口、交互、加载与无障碍检查 |
+| `tests/unit/` | 页面构建、预览路由与路径限制测试 |
+| `dist-pages/` | 唯一网站发布产物；构建时重建 |
+| `.github/workflows/` | 官网检查与 GitHub Pages 发布 |
 
-构建环境配置 SITE_URL，不使用 PUBLIC_* 存储秘密。PUBLIC_SITE_MODE 由包装构建脚本设置，仅决定样稿标记与内容过滤；正式发布使用 `pnpm build`，不要直接运行 astro build 绕过发布检查。
+`pnpm dev` 构建并监听 HTML 和素材变更，在 4321 端口提供预览；修改后刷新浏览器。`pnpm build` 与 `pnpm build:pages` 执行同一构建。`pnpm preview` 服务已有的 `dist-pages/`。
 
-添加语言：扩展 locales、语言名称、HTML 语言码、翻译字典、品牌及地址配置，添加内容译文并补充测试。添加集合：注册 schema、集合名、导航标签、模板与测试。未来 CMS 通过构建时内容适配接入，编辑发布触发构建；询盘或登录系统放独立后端/子域名，并重新设计鉴权与数据保护。
+根路径展示简体，独立语言路径为 `/zh-cn/`、`/zh-hk/` 和 `/en/`。相对资源与语言链接同时支持根域名和 GitHub Pages 仓库子路径。启用 JavaScript 时切换语言会保留章节锚点；关闭 JavaScript 也可读取完整译文和切换语言。
 
-当前没有真实企业信息，未输出 Organization JSON-LD，避免虚构结构化数据。确认企业全称、域名及联系方式后再增加相应 schema。Markdown 被视为仓库内受信任内容，仓库写入者仍能修改脚本和配置，应通过代码审查控制写权限。
+构建仅发布列出的文件，不复制 PPT、项目记录、检查报告或其他文档。页面继续使用 `noindex, nofollow` 和禁止抓取的 robots.txt；收录策略需要单独确认。浏览器脚本和发布素材中不得包含秘密。
+
+添加语言时同步语言模块、模板字典、语言菜单和测试；新增展示素材时更新构建复制清单。若未来增加 CMS、询盘或登录功能，应另行设计数据来源、部署方式、权限与隐私处理，不影响现有静态浏览能力。

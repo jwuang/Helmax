@@ -2,28 +2,29 @@
 
 ## Project Structure & Module Organization
 
-This Astro static site supports `zh-cn`, `zh-hk`, and `en`, without a database or backend. Routes live in `src/pages/`; reusable UI and layouts in `src/components/` and `src/layouts/`. Shared logic and translations are in `src/lib/`, company settings in `src/config/site.ts`, and styles in `src/styles/`. Markdown collections live in `src/content/{services,cases,news}/`. Use `src/assets/` for processed images and `public/` for directly served assets. Validation scripts live in `scripts/`, tests in `tests/`, and architecture, content, and operations guidance in `docs/` and `OPS-TODO.md`.
+This repository maintains only the Helmax exhibition-style static website in `zh-cn`, `zh-hk`, and `en`, without a database or backend. The shared homepage template, styles, interaction code, and `home-translations` dictionary live in `docs/design/helmax-exhibition-prototype.html`; keep this historical filename. Display assets live in `docs/design/assets/`. `scripts/build-pages.ts` generates the sole website output in `dist-pages/`, using language definitions from `scripts/lib/locales.ts`. Validation scripts live in `scripts/`, unit tests in `tests/unit/`, and architecture, content, and operations guidance in `docs/` and `OPS-TODO.md`.
 
 ## Build, Test, and Development Commands
 
-Use Node `24.19.0` (24.x) and pnpm `11.25.0`. Install dependencies with `pnpm install --frozen-lockfile`.
+Use Node `26.13.0` (26.x LTS) and pnpm `12.16.1`. Install dependencies with `pnpm install --frozen-lockfile`.
 
-- `pnpm dev`: Start development at `http://localhost:4321`.
-- `pnpm check`: Check Astro/TypeScript and validate content relationships.
+- `pnpm dev`: Build, watch the homepage HTML and assets, and serve at `http://localhost:4321`; refresh after edits.
+- `pnpm check`: Run TypeScript checks with `tsc --noEmit`.
 - `pnpm lint`: Run ESLint.
-- `pnpm test`: Run content and link-safety unit tests.
-- `pnpm build:preview && pnpm preview`: Build and serve the noindex sample site.
-- `pnpm test:e2e`: Test the built site across Chromium, Firefox, and WebKit.
-- `pnpm verify`: Run checks, lint, unit tests, preview build, and browser tests.
-- `pnpm build`: Produce reviewed production output in `dist/`.
+- `pnpm test`: Run website build unit tests.
+- `pnpm build` / `pnpm build:pages`: Build the same three-language website into `dist-pages/`.
+- `pnpm preview`: Serve the existing `dist-pages/` output.
+- `pnpm test:pages` / `pnpm test:e2e`: Run the same website browser checks, using Chromium by default; select Firefox or WebKit with `--browser=firefox` or `--browser=webkit`.
+- `pnpm verify`: Run type checks, lint, unit tests, website build, and Chromium browser checks.
+- `pnpm audit:security`: Audit dependencies for high and critical vulnerabilities.
 
 ## Coding Style & Naming Conventions
 
-Follow existing two-space indentation, single-quoted JavaScript/TypeScript strings, and semicolons. Use strict TypeScript, including `noUncheckedIndexedAccess`. Name Astro components in PascalCase, utilities in camelCase, and content files like `planning.zh-cn.md`. ESLint covers JavaScript, TypeScript, and Astro; match surrounding formatting.
+Follow existing two-space indentation, single-quoted JavaScript/TypeScript strings, and semicolons. Use strict TypeScript, including `noUncheckedIndexedAccess`. Name utilities in camelCase and keep language keys and chapter anchors stable. ESLint covers JavaScript and TypeScript; match surrounding formatting.
 
 ## Testing Guidelines
 
-Unit tests use `node:test` and strict assertions in `tests/unit/*.test.ts`; browser tests use Playwright and axe accessibility checks in `tests/e2e/*.spec.ts`. Install browsers with `pnpm exec playwright install --with-deps chromium firefox webkit`. Build with `pnpm build:preview` before standalone browser tests. For behavior changes, add focused regression coverage and run `pnpm verify`. No numeric coverage threshold is configured.
+Unit tests use `node:test` and strict assertions in `tests/unit/*.test.ts`. Website browser checks use Playwright and axe in `scripts/check-design-prototype.mjs`. Install browsers with `pnpm exec playwright install --with-deps chromium firefox webkit`. Run `pnpm build` before standalone browser tests. For behavior changes, add focused regression coverage and run `pnpm verify`, plus relevant Firefox and WebKit checks. CI validates the website in all three browsers. No numeric coverage threshold is configured. Reports and screenshots go to the ignored `reports/design-prototype/` directory.
 
 ## Commit & Pull Request Guidelines
 
@@ -31,8 +32,8 @@ History favors imperative, descriptive subjects, sometimes with a `docs:` prefix
 
 ## Content & Configuration
 
-Translations share a stable `translationKey`; `routeSlug` uses lowercase kebab-case. Keep unreviewed content as drafts and use Markdown without raw HTML. Follow `docs/CONTENT.md`. Production requires an actual HTTPS `SITE_URL` and completed publication/privacy review flags. Use `pnpm build` to enforce those checks. Keep secrets out of browser code and `PUBLIC_*` variables; CI validates previews without deploying.
+Maintain all three languages in the homepage `home-translations` dictionary, including metadata, image alternatives, and accessible labels. The build rejects missing or blank translation bindings. Add new display assets to the build's explicit copy list. Follow `docs/CONTENT.md`; keep unverified details clearly marked as pending and never invent product claims, contacts, or authorizations. Keep secrets out of browser code and published files. Preserve the current noindex and robots restrictions unless the user explicitly requests a change. Pull requests run checks; the Pages workflow deploys relevant main-branch changes.
 
 ## Helmax Website Continuation
 
-Before continuing homepage or design work, read `docs/PROJECT-STATUS.md` for confirmed requirements, current artifacts, and next steps. `docs/CHAT-LOG.md` records the project conversation and design decisions. The user confirmed that the former concept is now the official website: `docs/design/helmax-exhibition-prototype.html` is the shared homepage source, and `scripts/build-pages.ts` publishes complete `zh-cn`, `zh-hk`, and `en` pages to GitHub Pages. Keep this historical source filename, and maintain the deployed site as the primary website. The Astro implementation in `src/` remains the earlier sample. Preserve the confirmed requirements rather than restarting the requirements interview. The repository includes the local `ui-ux-pro-max` skill and its upstream license.
+Before continuing homepage or design work, read `docs/PROJECT-STATUS.md` for confirmed requirements, current artifacts, and next steps. `docs/CHAT-LOG.md` records the project conversation and design decisions. The user confirmed the exhibition design as the official website and requested removal of the earlier sample. Maintain this website as the sole implementation and preserve confirmed requirements rather than restarting the requirements interview. Historical chat and test records may mention removed components; use current documentation for active commands. The repository includes the local `ui-ux-pro-max` skill and its upstream license.
