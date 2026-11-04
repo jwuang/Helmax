@@ -50,8 +50,8 @@ const browser = await browserType.launch({
 });
 const ready = async (page) => page.waitForFunction(() => !document.documentElement.classList.contains('is-preparing'));
 // Keep the real document-ready callback under test control without production hooks.
-// This exposes the brief loading state while an optional logo stays pending.
-const deferDocumentReady = ({ pendingLogoUrl, holdFallback = false } = {}) => {
+// This exposes the brief loading state without waiting on slow network resources.
+const deferDocumentReady = ({ holdFallback = false } = {}) => {
   const addEventListener = document.addEventListener;
   const setTimeout = window.setTimeout;
   const listeners = [];
@@ -66,8 +66,6 @@ const deferDocumentReady = ({ pendingLogoUrl, holdFallback = false } = {}) => {
   addEventListener.call(document, 'DOMContentLoaded', (event) => {
     readyEvent = event;
     window.setTimeout = setTimeout;
-    const logo = document.querySelector('.brand img');
-    if (pendingLogoUrl && logo) logo.src = pendingLogoUrl;
   }, { once: true });
   document.addEventListener = function (type, listener, options) {
     if (type === 'DOMContentLoaded') listeners.push(listener);
@@ -232,29 +230,33 @@ try {
       await route.fulfill({ contentType: 'image/png', body: logoBody });
     });
     try {
-      await slow.addInitScript(deferDocumentReady, { pendingLogoUrl, holdFallback: true });
+      await slow.addInitScript(deferDocumentReady, { holdFallback: true });
       const loadingPage = await slow.newPage();
       loadingPage.on('pageerror', (error) => results.errors.push(error.message));
-      await Promise.all([
-        loadingPage.waitForRequest(pendingLogoUrl),
-        loadingPage.goto(sourceFor(locale), { waitUntil: 'domcontentloaded' }),
-      ]);
+      // WebKit screenshots wait for fonts, which can also wait for document load.
+      // Capture the loader with normal resources before introducing a stalled image.
+      await loadingPage.goto(sourceFor(locale), { waitUntil: 'load' });
       await loadingPage.waitForSelector('#page-loader', { state: 'visible' });
       const pending = await loadingPage.evaluate(() => ({
         contentVisible: window.getComputedStyle(document.getElementById('page-content')).visibility,
         label: document.querySelector('.loader-label').textContent,
         wordmark: document.querySelector('.loader-logo').textContent,
         loaderImages: document.querySelectorAll('#page-loader img').length,
-        logoComplete: document.querySelector('.brand img').complete,
       }));
       check(pending.contentVisible === 'hidden' && pending.label === expected.loading, `${locale}: loading state or translation`);
-      check(pending.wordmark === 'Helmax' && pending.loaderImages === 0 && !pending.logoComplete, `${locale}: loading wordmark depends on image download`);
+      check(pending.wordmark === 'Helmax' && pending.loaderImages === 0, `${locale}: loading wordmark depends on image download`);
       await loadingPage.screenshot({ path: `${out}/helmax-${locale}-loading-desktop.png` });
       await audit(loadingPage, `${locale}-loading`);
       await loadingPage.setViewportSize({ width: 390, height: 844 });
       await loadingPage.screenshot({ path: `${out}/helmax-${locale}-loading-mobile.png` });
       await loadingPage.emulateMedia({ reducedMotion: 'reduce' });
       check(await loadingPage.locator('.loader-progress').evaluate((element) => window.getComputedStyle(element, '::before').animationName) === 'none', `${locale}: loader reduced motion`);
+      await Promise.all([
+        loadingPage.waitForRequest(pendingLogoUrl),
+        loadingPage.evaluate((url) => { document.querySelector('.brand img').src = url; }, pendingLogoUrl),
+      ]);
+      const logoPendingBeforeReady = await loadingPage.locator('.brand img').evaluate((logo) => !logo.complete);
+      check(logoPendingBeforeReady, `${locale}: slow-logo regression setup did not stall the image`);
       const afterReady = await loadingPage.evaluate(() => {
         Object.defineProperty(document.fonts, 'ready', { value: new Promise(() => {}) });
         window.__releaseDocumentReadyForReview();
@@ -268,7 +270,7 @@ try {
           logoComplete: document.querySelector('.brand img').complete,
         };
       });
-      results.loading[locale] = { pending, afterReady };
+      results.loading[locale] = { pending, logoPendingBeforeReady, afterReady };
       check(!afterReady.preparing && afterReady.loaderHidden && !afterReady.inert && afterReady.busy === 'false' && afterReady.contentVisible === 'visible' && !afterReady.logoComplete, `${locale}: pending logo or fonts block ready content`);
       check(await loadingPage.locator('h1').isVisible(), `${locale}: ready heading hidden`);
     } finally {
