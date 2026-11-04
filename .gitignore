@@ -13,3 +13,9 @@ reports/
 artifacts/
 # Windows download metadata is not a project asset.
 *:Zone.Identifier
+
+# wrangler files
+.wrangler
+.cloudflare/
+.dev.vars*
+!.dev.vars.example
