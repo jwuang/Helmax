@@ -1,19 +1,11 @@
-name: Deploy Helmax website to GitHub Pages
+name: Redirect legacy GitHub Pages URLs to Cloudflare
 
 on:
   push:
     branches: [main]
     paths:
-      - 'docs/design/helmax-exhibition-prototype.html'
-      - 'docs/design/assets/**'
-      - 'scripts/build-pages.ts'
-      - 'scripts/check-design-prototype.mjs'
+      - 'scripts/build-legacy-redirects.ts'
       - 'scripts/lib/**'
-      - 'tests/unit/**'
-      - 'package.json'
-      - 'pnpm-lock.yaml'
-      - 'pnpm-workspace.yaml'
-      - '.node-version'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
 
@@ -42,15 +34,19 @@ jobs:
       - run: pnpm check
       - run: pnpm lint
       - run: pnpm test
-      - run: pnpm build:pages
-      - run: pnpm exec playwright install --with-deps chromium
-      - run: pnpm test:pages
+      - name: Verify Cloudflare is serving the website before replacing the old site
+        run: |
+          for path in / /zh-cn/ /zh-hk/ /en/; do
+            curl --fail --silent --show-error --retry 3 "https://helmax.1143402012.workers.dev$path" -o /tmp/helmax-page.html
+            grep -q 'Helmax' /tmp/helmax-page.html
+          done
+      - run: node --import tsx scripts/build-legacy-redirects.ts
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v6
-      - name: Upload Helmax website
+      - name: Upload legacy redirects
         uses: actions/upload-pages-artifact@v5
         with:
-          path: dist-pages
+          path: dist-redirects
 
   deploy:
     needs: build
@@ -63,6 +59,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy legacy redirects
         id: deployment
         uses: actions/deploy-pages@v5

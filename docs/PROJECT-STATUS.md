@@ -4,13 +4,13 @@
 
 ## 当前正式网站
 
-默认地址：<https://jwuang.github.io/corporate-portal/>，根路径展示简体。独立语言地址：
+默认地址：<https://helmax.1143402012.workers.dev/>，根路径展示简体。独立语言地址：
 
-- [简体中文](https://jwuang.github.io/corporate-portal/zh-cn/)
-- [繁體中文](https://jwuang.github.io/corporate-portal/zh-hk/)
-- [English](https://jwuang.github.io/corporate-portal/en/)
+- [简体中文](https://helmax.1143402012.workers.dev/zh-cn/)
+- [繁體中文](https://helmax.1143402012.workers.dev/zh-hk/)
+- [English](https://helmax.1143402012.workers.dev/en/)
 
-首页源文件沿用历史路径 [helmax-exhibition-prototype.html](design/helmax-exhibition-prototype.html)。`scripts/build-pages.ts` 从同一 HTML 模板与内嵌 `home-translations` 字典生成完整三语静态页面，`.github/workflows/pages.yml` 验证并发布到 GitHub Pages。页面标题与页脚已改为正式官网表述。不要再把该版本当作等待迁移才能使用的概念稿。
+首页源文件沿用历史路径 [helmax-exhibition-prototype.html](design/helmax-exhibition-prototype.html)。`scripts/build-pages.ts` 从同一 HTML 模板与内嵌 `home-translations` 字典生成完整三语静态页面，Cloudflare Workers Builds 验证并发布到 Workers Static Assets。页面标题与页脚已改为正式官网表述。不要再把该版本当作等待迁移才能使用的概念稿。
 
 2026-11-04 官网清理和工具链升级提交 [`47d38a6`](https://github.com/jwuang/corporate-portal/commit/47d38a61dcdd4a805310ad35cd2f7af920f15a96) 已推送 `origin/main`，[Pages 工作流](https://github.com/jwuang/corporate-portal/actions/runs/41801095093) 构建与部署成功，[官网 CI](https://github.com/jwuang/corporate-portal/actions/runs/41801095101) 也已通过 Chromium、Firefox 和 WebKit 检查。发布后读取默认首页、三个语言页面、三张图片和 `robots.txt`，8 个文件均返回 HTTP 200，SHA-256 与本地构建一致；三语文档语言、Helmax 标题和六章结构正确。
 
@@ -20,7 +20,7 @@
 
 1. 阅读本文件，保留已经确定的要求。
 2. 查看线上三语官网，或直接用浏览器打开首页源文件；保留同目录的 `assets/`。本地语言预览通过 `?lang=zh-cn`、`?lang=zh-hk`、`?lang=en` 切换，需要 JavaScript。
-3. 查阅 [项目聊天记录](CHAT-LOG.md)、[首页设计说明](HOMEPAGE-WIREFRAME.md) 和 [Pages 部署指南](GITHUB-PAGES.md)。
+3. 查阅 [项目聊天记录](CHAT-LOG.md)、[首页设计说明](HOMEPAGE-WIREFRAME.md) 和 [Cloudflare 部署指南](CLOUDFLARE.md)。
 4. 在当前官网上继续完善内容和交互，不重新开始需求访谈。
 
 ## 已确认的要求
@@ -63,7 +63,8 @@
 | 文件／目录 | 用途 |
 | --- | --- |
 | [CHAT-LOG.md](CHAT-LOG.md) | 用户需求原文与阶段答复，保留讨论顺序 |
-| [GITHUB-PAGES.md](GITHUB-PAGES.md) | 正式官网的三语地址、构建、发布及回退 |
+| [CLOUDFLARE.md](CLOUDFLARE.md) | 正式官网的三语地址、构建、发布及回退 |
+| [GITHUB-PAGES.md](GITHUB-PAGES.md) | 旧地址跳转说明 |
 | [HOMEPAGE-REVIEW.md](HOMEPAGE-REVIEW.md) | 原官网评估、PPT 资料梳理与历史设计约束 |
 | [HOMEPAGE-WIREFRAME.md](HOMEPAGE-WIREFRAME.md) | 章节构图、文化文案、滚动与加载设计依据 |
 | [首页源文件](design/helmax-exhibition-prototype.html) | 正式官网模板、三语字典与本地可交互预览 |

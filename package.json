@@ -18,18 +18,22 @@
     "test:pages": "node scripts/check-design-prototype.mjs --built",
     "test:e2e": "node scripts/check-design-prototype.mjs --built",
     "audit:security": "pnpm audit --audit-level high",
-    "verify": "pnpm check && pnpm lint && pnpm test && pnpm build && pnpm test:pages"
+    "verify": "pnpm check && pnpm lint && pnpm test && pnpm build && pnpm test:pages",
+    "build:cloudflare": "pnpm build && cf build",
+    "deploy": "pnpm build && cf deploy"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",
     "@eslint/js": "10.0.1",
     "@playwright/test": "1.64.1",
     "@types/node": "26.6.6",
+    "cf": "1.0.0-beta.27",
     "cheerio": "1.2.0",
     "eslint": "10.14.0",
     "lighthouse": "13.6.0",
     "tsx": "4.23.15",
     "typescript": "6.0.3",
-    "typescript-eslint": "8.72.1"
+    "typescript-eslint": "8.72.1",
+    "wrangler": "4.157.0"
   }
 }

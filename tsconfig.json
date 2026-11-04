@@ -1,5 +1,7 @@
 {
   "include": [
+    "cloudflare.config.ts",
+    "wrangler.config.ts",
     "scripts/**/*.ts",
     "tests/**/*.ts"
   ],

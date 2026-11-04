@@ -12,7 +12,9 @@
 | `scripts/check-design-prototype.mjs` | 官网视口、交互、加载与无障碍检查 |
 | `tests/unit/` | 页面构建、预览路由与路径限制测试 |
 | `dist-pages/` | 唯一网站发布产物；构建时重建 |
-| `.github/workflows/` | 官网检查与 GitHub Pages 发布 |
+| `.github/workflows/` | 官网检查与旧 GitHub Pages 地址跳转 |
+| `cloudflare.config.ts` | Cloudflare Worker 名称、兼容日期与静态路由配置 |
+| `wrangler.config.ts` | cf 构建工具生成的静态资源目录配置 |
 
 `pnpm dev` 构建并监听 HTML 和素材变更，在 4321 端口提供预览；修改后刷新浏览器。`pnpm build` 与 `pnpm build:pages` 执行同一构建。`pnpm preview` 服务已有的 `dist-pages/`。
 

@@ -1,6 +1,6 @@
 # 人工运维 TODO
 
-当前官网通过 GitHub Pages 发布 `dist-pages/`。域名、托管设置与账号权限的变更按实际需要人工执行，完成验收后再勾选。
+当前官网通过 Cloudflare Workers Static Assets 发布 `dist-pages/`。域名、托管设置与账号权限的变更按实际需要人工执行，完成验收后再勾选。
 
 | 状态 | 操作与目的 | 验收 |
 | --- | --- | --- |
@@ -8,18 +8,18 @@
 | [ ] | 确认隐私处理与公开资料授权 | 明确托管日志、联系方式处理及品牌／图片使用依据 |
 | [ ] | 完善产品分类、型号、规格和正式图片 | 逐项核对 [资料待办](docs/PROJECT-STATUS.md#仍需补充的资料)，运行官网验证 |
 | [ ] | 检查 GitHub 仓库权限与主分支保护 | 最小写权限、PR 审阅、CI 检查及账号恢复方式可用 |
-| [ ] | 确认 Pages 发布设置与部署权限 | 使用 GitHub Actions，三语线上地址、图片、语言切换正常 |
+| [ ] | 确认 Cloudflare 自动构建与部署权限 | 使用 Workers Builds，三语线上地址、图片、语言切换正常 |
 | [ ] | 决定搜索收录策略 | 当前保留 noindex 和禁止抓取；批准收录后同步元数据、robots.txt 及测试 |
-| [ ] | 配置正式域名（需要时） | DNS、Pages 自定义域名和 HTTPS 正常；保留原 DNS 回退记录 |
+| [ ] | 配置正式域名（需要时） | DNS、Workers 自定义域名和 HTTPS 正常；保留原 DNS 回退记录 |
 | [ ] | 保护域名与 DNS 账号（需要时） | MFA、转移锁、自动续费、变更通知和恢复方式已核对；保留 MX/TXT 邮箱记录 |
 | [ ] | 定期验证可用性、证书与恢复能力 | 检查三语页面，确认告警接收人和回退步骤 |
 
 ## 发布与回退
 
 1. 使用 Node 26.13.0 和 pnpm 12.16.1，运行 `pnpm install --frozen-lockfile`、`pnpm verify`；CI 补充 Firefox 和 WebKit 检查。
-2. 审阅变更后合入 `main`。Pages 工作流构建、验证并部署 `dist-pages/`；不发布源码、PPT、报告或依赖目录。
+2. 审阅变更后合入 `main`。Cloudflare Workers Builds 构建、验证并部署 `dist-pages/`；不发布源码、PPT、报告或依赖目录。
 3. 部署完成后检查根路径及三个语言地址、图片、章节锚点、菜单、加载行为和无脚本语言切换。
-4. 出现问题时撤销有问题的提交，将回退提交推送到 `main` 并等待重新部署；操作细节见 [Pages 指南](docs/GITHUB-PAGES.md)。
+4. 出现问题时撤销有问题的提交，将回退提交推送到 `main` 并等待重新部署；操作细节见 [Cloudflare 指南](docs/CLOUDFLARE.md)。
 
 ## 未来自托管时另行确认
 
