@@ -66,7 +66,8 @@ const deferDocumentReady = ({ pendingLogoUrl, holdFallback = false } = {}) => {
   addEventListener.call(document, 'DOMContentLoaded', (event) => {
     readyEvent = event;
     window.setTimeout = setTimeout;
-    if (pendingLogoUrl) document.querySelector('.brand img').src = pendingLogoUrl;
+    const logo = document.querySelector('.brand img');
+    if (pendingLogoUrl && logo) logo.src = pendingLogoUrl;
   }, { once: true });
   document.addEventListener = function (type, listener, options) {
     if (type === 'DOMContentLoaded') listeners.push(listener);
